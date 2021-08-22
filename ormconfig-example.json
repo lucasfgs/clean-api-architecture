@@ -1,0 +1,19 @@
+{
+    "type": "postgres",
+    "port": 5432,
+    "host": "localhost",
+    "username": "postgres",
+    "password": "your-password",
+    "database": "clean-api",
+    "logging": true,
+    "entities": [
+        "src/modules/**/entities/*.ts"
+    ],
+    "migrations": [
+        "src/infra/typeorm/migrations/*.ts"
+    ],
+    "cli": {
+        "entitiesDir": "src/infra/typeorm/entities",
+        "migrationsDir": "src/infra/typeorm/migrations"
+    }
+}
