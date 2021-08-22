@@ -1,3 +1,6 @@
-import { app } from './infra/http/app'
+import { run } from './infra/http/app'
 
-app.listen(8000, () => console.log('Server listening at port 8000'))
+(async () => {
+  const app = await run()
+  app.listen(8000, () => console.log('Server listening at port 8000'))
+})()

@@ -2,7 +2,16 @@ import 'reflect-metadata'
 import 'express-async-errors'
 
 import express from 'express'
+import { setupGlobalMiddlewares } from './setup/setupGlobalMIddlewares'
+import { setupRoutes } from './routes'
+import { createConnection } from 'typeorm'
 
-const app = express()
+export async function run () {
+  await createConnection()
+  const app = express()
 
-export { app }
+  setupGlobalMiddlewares(app)
+  setupRoutes(app)
+
+  return app
+}
