@@ -10,10 +10,10 @@
         "src/modules/**/entities/*.ts"
     ],
     "migrations": [
-        "src/infra/typeorm/migrations/*.ts"
+        "src/infra/database/typeorm/migrations/*.ts"
     ],
     "cli": {
-        "entitiesDir": "src/infra/typeorm/entities",
-        "migrationsDir": "src/infra/typeorm/migrations"
+        "entitiesDir": "src/infra/database/typeorm/entities",
+        "migrationsDir": "src/infra/database/typeorm/migrations"
     }
 }
