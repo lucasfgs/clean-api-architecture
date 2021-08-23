@@ -10,13 +10,10 @@ export class CreatePermissionController implements Controller {
   }
 
   async handle (request: HttpRequest<IPermission>): Promise<HttpResponse<IPermission>> {
-    const { name, create, read, update, delete: destroy } = request.body
+    const { name } = request.body
+
     const permission = await this.createPermission.create({
-      name,
-      create,
-      read,
-      update,
-      delete: destroy
+      name
     })
 
     return await this.presenter.response(permission)

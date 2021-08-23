@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
-import { PermissionGroup } from './PermissionGroup'
+import { PermissionRole } from './PermissionRole'
 
 @Entity('role', { schema: 'public' })
 export class Role {
@@ -18,6 +18,6 @@ export class Role {
   @Column('timestamp without time zone', { name: 'updated_at', nullable: true })
   updatedAt: Date | null;
 
-  @OneToMany(() => PermissionGroup, (permissionGroup) => permissionGroup.role)
-  permissionGroups: PermissionGroup[];
+  @OneToMany(() => PermissionRole, (permissionRole) => permissionRole.role)
+  permissionRoles: PermissionRole[];
 }

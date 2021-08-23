@@ -1,13 +1,5 @@
-import { IPermission } from '../../../data/models/IPermission'
-
-export type TCreatePermissionRequestModel = {
-    name: string;
-    create: boolean;
-    read: boolean;
-    update: boolean;
-    delete: boolean;
-}
+import { ICreatePermission, IPermission } from '../../../data/models/IPermission'
 
 export interface ICreatePermissionUseCase {
-    create(requestModel: TCreatePermissionRequestModel): Promise<IPermission>
+    create(requestModel: ICreatePermission): Promise<IPermission>
 }

@@ -19,26 +19,6 @@ export class createPermissionTable1629604586335 implements MigrationInterface {
           length: '50'
         },
         {
-          name: 'create',
-          type: 'boolean',
-          default: false
-        },
-        {
-          name: 'read',
-          type: 'boolean',
-          default: false
-        },
-        {
-          name: 'update',
-          type: 'boolean',
-          default: false
-        },
-        {
-          name: 'delete',
-          type: 'boolean',
-          default: false
-        },
-        {
           name: 'created_at',
           type: 'timestamp',
           default: 'now()'
