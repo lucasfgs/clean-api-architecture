@@ -1,4 +1,4 @@
-import { IPermission } from '@data/models/IPermission'
+import { IPermission } from '@domain/models/IPermission'
 import { ICreatePermissionUseCase } from '@domain/useCases/permission/ICreatePermissionUseCase'
 import { Controller } from '../../protocols/Controller'
 import { HttpRequest, HttpResponse, HttpResponseHandler } from '../../protocols/Http'

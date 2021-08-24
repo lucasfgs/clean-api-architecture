@@ -1,4 +1,4 @@
-import { ICreatePermission } from '@data/models/IPermission'
+import { ICreatePermission } from '@domain/models/IPermission'
 import { InternalServerError } from '@presentation/errors/InternalServerError'
 import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
 

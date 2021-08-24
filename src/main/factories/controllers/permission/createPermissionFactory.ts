@@ -1,7 +1,7 @@
 import { PermissionRepository } from '@application/repositories/PermissionRepository'
 import { CreatePermissionUseCase } from '@application/useCases/permission/CreatePermissionUseCase'
 import { CreatePermissionValidation } from '@application/validation/permission/composite/CreatePermissionValidation'
-import { IPermission } from '@data/models/IPermission'
+import { IPermission } from '@domain/models/IPermission'
 import { CreatePermissionController } from '@presentation/controllers/permission/CreatePermissionController'
 import { GenericCreatedResponse } from '@presentation/responses/GenericCreatedResponse'
 

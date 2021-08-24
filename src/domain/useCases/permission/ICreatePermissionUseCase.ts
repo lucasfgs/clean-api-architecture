@@ -1,4 +1,4 @@
-import { ICreatePermission, IPermission } from '@data/models/IPermission'
+import { ICreatePermission, IPermission } from '@domain/models/IPermission'
 
 export interface ICreatePermissionUseCase {
     create(requestModel: ICreatePermission): Promise<IPermission>

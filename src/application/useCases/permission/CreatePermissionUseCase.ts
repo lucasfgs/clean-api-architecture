@@ -1,5 +1,5 @@
-import { ICreatePermission, IPermission } from '@data/models/IPermission'
-import { IPermissionRepository } from '@data/repositories/IPermissionRepository'
+import { ICreatePermission, IPermission } from '@domain/models/IPermission'
+import { IPermissionRepository } from '@domain/repositories/IPermissionRepository'
 import { ICreatePermissionUseCase } from '@domain/useCases/permission/ICreatePermissionUseCase'
 import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
 import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
