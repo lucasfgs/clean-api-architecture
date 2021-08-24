@@ -9,7 +9,7 @@ export class PermissionRequiredFieldsValidation extends ValidationComposite<ICre
 
     const { name } = request
 
-    if (!isString(name) && !name) { error.messages.push('Invalid field: name') }
+    if (!isString(name) || !name) { error.messages.push('Invalid field: name') }
 
     if (error.messages.length > 1) { throw error }
   }
