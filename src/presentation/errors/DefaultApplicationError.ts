@@ -18,6 +18,7 @@ export class DefaultApplicationError
 
   constructor (message?: string) {
     super(message)
+    Object.setPrototypeOf(this, DefaultApplicationError.prototype)
     this.message = message || this.name
     this.name = 'DefaultApplicationError'
     this.messages.push(this.message)
