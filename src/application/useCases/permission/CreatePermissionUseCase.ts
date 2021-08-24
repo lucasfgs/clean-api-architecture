@@ -10,7 +10,7 @@ export class CreatePermissionUseCase implements ICreatePermissionUseCase {
     this.validation = validation
   }
 
-  async create (requestModel: ICreatePermission): Promise<IPermission> {
+  async create (requestModel?: ICreatePermission): Promise<IPermission> {
     await this.validation.validate(requestModel)
     const permission = await this.permissionRepository.findByName(requestModel.name)
 
