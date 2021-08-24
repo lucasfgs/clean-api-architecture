@@ -1,7 +1,7 @@
-import { DefaultApplicationError } from '../../../presentation/errors/DefaultApplicationError'
-import { ICreatePermission, IPermission } from '../../../data/models/IPermission'
-import { IPermissionRepository } from '../../../data/repositories/IPermissionRepository'
-import { ICreatePermissionUseCase } from '../../../domain/useCases/permission/ICreatePermissionUseCase'
+import { ICreatePermission, IPermission } from '@data/models/IPermission'
+import { IPermissionRepository } from '@data/repositories/IPermissionRepository'
+import { ICreatePermissionUseCase } from '@domain/useCases/permission/ICreatePermissionUseCase'
+import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
 
 export class CreatePermissionUseCase implements ICreatePermissionUseCase {
   constructor (private readonly permissionRepository: IPermissionRepository) {

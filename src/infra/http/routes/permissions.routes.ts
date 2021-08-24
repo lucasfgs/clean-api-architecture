@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { createPermissionControllerFactory } from '../../../main/factories/controllers/permission/createPermissionFactory'
+import { createPermissionControllerFactory } from '@main/factories/controllers/permission/createPermissionFactory'
 import { routeAdapter } from '../adapters/routeAdapter'
 
 export default (router: Router): void => {
