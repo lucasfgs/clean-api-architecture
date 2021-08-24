@@ -15,4 +15,14 @@ export class PermissionRepository implements IPermissionRepository {
 
     return this.repository.save(permission)
   }
+
+  async findByName (name: string): Promise<IPermission> {
+    const permission = this.repository.findOne({
+      where: {
+        name
+      }
+    })
+
+    return permission
+  }
 }

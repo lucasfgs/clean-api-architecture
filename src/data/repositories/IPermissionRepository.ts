@@ -1,5 +1,6 @@
-import { IPermission, IPermissionCreate } from '../models/IPermission'
+import { IPermission, ICreatePermission } from '../models/IPermission'
 
 export interface IPermissionRepository{
-   create(permission: IPermissionCreate): Promise<IPermission>
+   create(permission: ICreatePermission): Promise<IPermission>
+   findByName(name: string): Promise<IPermission>
 }
