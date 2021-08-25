@@ -1,5 +1,5 @@
 import { getRepository, Repository } from 'typeorm'
-import { IPermission, ICreatePermission } from '@domain/models/IPermission'
+import { IPermission, ICreatePermission, IUpdatePermission } from '@domain/models/IPermission'
 import { IPermissionRepository } from '@domain/repositories/IPermissionRepository'
 import { Permission } from '@infra/database/typeorm/entities/Permission'
 import { RepositoryError } from '@presentation/errors/RepositoryError'
@@ -9,16 +9,6 @@ export class PermissionRepository implements IPermissionRepository {
 
   constructor () {
     this.repository = getRepository(Permission)
-  }
-
-  async create (permissionModel: ICreatePermission): Promise<IPermission> {
-    try {
-      const permission = this.repository.create(permissionModel)
-
-      return this.repository.save(permission)
-    } catch (error) {
-      throw new RepositoryError('Could not create permission')
-    }
   }
 
   async findByName (name: string): Promise<IPermission> {
@@ -51,6 +41,24 @@ export class PermissionRepository implements IPermissionRepository {
       return list
     } catch (error) {
       throw new RepositoryError('Could not find permission')
+    }
+  }
+
+  async create (permissionModel: ICreatePermission): Promise<IPermission> {
+    try {
+      const permission = this.repository.create(permissionModel)
+
+      return this.repository.save(permission)
+    } catch (error) {
+      throw new RepositoryError('Could not create permission')
+    }
+  }
+
+  async update (permissionModel: IUpdatePermission): Promise<void> {
+    try {
+      await this.repository.update(permissionModel.id, permissionModel)
+    } catch (error) {
+      throw new RepositoryError('Could not update permission')
     }
   }
 }

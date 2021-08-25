@@ -7,3 +7,7 @@ export interface IPermission {
 }
 
 export type ICreatePermission = Omit<IPermission, 'id' | 'createdAt' | 'updatedAt' >
+
+export type IUpdatePermission = Omit<IPermission, 'createdAt' | 'updatedAt' >
+
+export type IUpdatePermissionParams = Pick<IPermission, 'id'>
