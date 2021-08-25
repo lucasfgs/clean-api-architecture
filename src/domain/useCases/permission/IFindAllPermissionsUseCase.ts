@@ -1,7 +1,7 @@
 import { IPermission } from '@domain/models/IPermission'
 
 export type IFindAllPermissionsRequestModel = {
-    order?: 'desc' | 'asc';
+    order?: 'DESC' | 'ASC';
     limit?: number;
     offset?: number;
 }

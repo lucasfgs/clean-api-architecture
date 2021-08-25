@@ -22,7 +22,7 @@ export class FindAllPermissionsValidation extends ValidationComposite<IFindAllPe
       return
     }
 
-    if (isAPositiveNumber(value)) {
+    if (!isAPositiveNumber(value)) {
       throw new RequestValidationError('Expected a positive number')
     }
   }
