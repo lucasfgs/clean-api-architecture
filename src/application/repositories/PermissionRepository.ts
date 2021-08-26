@@ -16,7 +16,7 @@ export class PermissionRepository implements IPermissionRepository {
 
   async findByName (name: string): Promise<IPermission> {
     try {
-      const permission = this.repository.findOne({
+      const permission = await this.repository.findOne({
         where: {
           name
         }
@@ -47,7 +47,7 @@ export class PermissionRepository implements IPermissionRepository {
 
   async create (permissionModel: ICreatePermission): Promise<IPermission> {
     try {
-      const permission = this.repository.create(permissionModel)
+      const permission = await this.repository.create(permissionModel)
 
       return this.repository.save(permission)
     } catch (error) {

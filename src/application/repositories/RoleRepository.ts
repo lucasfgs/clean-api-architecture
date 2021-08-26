@@ -14,16 +14,6 @@ export class RoleRepository implements IRoleRepository {
       this.repository = getRepository(Role)
     }
 
-    async create (role: ICreateRole): Promise<IRole> {
-      try {
-        const createdRole = await this.repository.create(role)
-
-        return await this.repository.save(createdRole)
-      } catch (error) {
-        throw new RepositoryError('Could not create role')
-      }
-    }
-
     async findByName (name: string): Promise<IRole> {
       return await this.repository.findOne({ where: { name } })
     }
@@ -42,6 +32,16 @@ export class RoleRepository implements IRoleRepository {
       } catch (error) {
         console.log(error)
         throw new RepositoryError('Could not find role')
+      }
+    }
+
+    async create (role: ICreateRole): Promise<IRole> {
+      try {
+        const createdRole = await this.repository.create(role)
+
+        return await this.repository.save(createdRole)
+      } catch (error) {
+        throw new RepositoryError('Could not create role')
       }
     }
 
