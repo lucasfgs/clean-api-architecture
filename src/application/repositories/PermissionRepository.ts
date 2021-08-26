@@ -3,6 +3,7 @@ import { IPermission, ICreatePermission, IUpdatePermission } from '@domain/model
 import { IPermissionRepository } from '@domain/repositories/IPermissionRepository'
 import { Permission } from '@infra/database/typeorm/entities/Permission'
 import { RepositoryError } from '@presentation/errors/RepositoryError'
+import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
 
 export class PermissionRepository implements IPermissionRepository {
   private repository: Repository<Permission>
@@ -27,7 +28,6 @@ export class PermissionRepository implements IPermissionRepository {
 
   async findAll (order: 'DESC' | 'ASC', limit: number, offset: number): Promise<IPermission[]> {
     try {
-      // TODO: make pagination and return all data
       const [list, number] = await this.repository.findAndCount({
         order: {
           name: order
@@ -59,6 +59,18 @@ export class PermissionRepository implements IPermissionRepository {
       await this.repository.update(permissionModel.id, { ...permissionModel, updatedAt: new Date() })
     } catch (error) {
       throw new RepositoryError('Could not update permission')
+    }
+  }
+
+  async delete (id: number): Promise<void> {
+    try {
+      const deletedPermission = await this.repository.delete(id)
+
+      if (deletedPermission.affected === 0) throw new RepositoryError('Permission does not exist')
+    } catch (error) {
+      if (error instanceof DefaultApplicationError) throw error
+
+      throw new RepositoryError('Could not delete permission')
     }
   }
 }

@@ -1,9 +1,9 @@
-import { IUpdatePermission, IUpdatePermissionParams } from '@domain/models/IPermission'
+import { IPermissionParams, IUpdatePermission } from '@domain/models/IPermission'
 import { IUpdatePermissionUseCase } from '@domain/useCases/permission/IUpdatePermissionUseCase'
 import { Controller } from '../../protocols/Controller'
 import { HttpRequest, HttpResponse, HttpResponseHandler } from '../../protocols/Http'
 
-type RequestType = HttpRequest<IUpdatePermission, IUpdatePermissionParams>
+type RequestType = HttpRequest<IUpdatePermission, IPermissionParams>
 
 export class UpdatePermissionController implements Controller {
   constructor (private readonly permission: IUpdatePermissionUseCase, private readonly presenter: HttpResponseHandler<void>) {

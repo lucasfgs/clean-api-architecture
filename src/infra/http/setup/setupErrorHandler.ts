@@ -3,6 +3,7 @@ import { Express, Request, Response, NextFunction } from 'express'
 
 export const setupErrorHandler = (app: Express): void => {
   app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
+    console.log('asdqwopkdwqkd:', error)
     /* istanbul ignore next */
     if (!error) {
       return next()

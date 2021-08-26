@@ -3,7 +3,7 @@ import { IFindAllPermissionsRequestModel } from '@domain/useCases/permission/IFi
 import { RequestValidationError } from '@presentation/errors/RequestValidationError'
 import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
 
-export class FindAllPermissionsValidation extends ValidationComposite<IFindAllPermissionsRequestModel> {
+export class FilterValidation extends ValidationComposite<IFindAllPermissionsRequestModel> {
   validate (request: IFindAllPermissionsRequestModel): void {
     if (!request) return
 

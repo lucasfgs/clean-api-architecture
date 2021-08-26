@@ -10,4 +10,4 @@ export type ICreatePermission = Omit<IPermission, 'id' | 'createdAt' | 'updatedA
 
 export type IUpdatePermission = Omit<IPermission, 'createdAt' | 'updatedAt' >
 
-export type IUpdatePermissionParams = Pick<IPermission, 'id'>
+export type IPermissionParams = Pick<IPermission, 'id'>

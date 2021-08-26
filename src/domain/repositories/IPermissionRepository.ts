@@ -5,4 +5,5 @@ export interface IPermissionRepository{
    findByName(name: string): Promise<IPermission>
    findAll(order: 'DESC' | 'ASC', limit: number, offset: number): Promise<IPermission[]>
    update(permission: IUpdatePermission): Promise<void>
+   delete(id: number): Promise<void>
 }
