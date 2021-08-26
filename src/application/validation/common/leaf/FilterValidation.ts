@@ -1,10 +1,10 @@
 import { isAPositiveNumber } from '@application/helpers/numbers/isAPositiveNumber'
-import { IFindAllPermissionsRequestModel } from '@domain/useCases/permission/IFindAllPermissionsUseCase'
 import { RequestValidationError } from '@presentation/errors/RequestValidationError'
 import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { IGenericFilterRequestQuery } from '@presentation/requests/GenericFilterRequest'
 
-export class FilterValidation extends ValidationComposite<IFindAllPermissionsRequestModel> {
-  validate (request: IFindAllPermissionsRequestModel): void {
+export class FilterValidation extends ValidationComposite<IGenericFilterRequestQuery> {
+  validate (request: IGenericFilterRequestQuery): void {
     if (!request) return
 
     if (request.order && !request.order.match(/desc|asc/i)) {

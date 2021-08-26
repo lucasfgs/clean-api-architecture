@@ -1,9 +1,8 @@
-import { IPermissionParams, IUpdatePermission } from '@domain/models/IPermission'
+import { IUpdatePermission } from '@domain/models/IPermission'
 import { IUpdatePermissionUseCase } from '@domain/useCases/permission/IUpdatePermissionUseCase'
+import { TGenericRequestParam } from '@presentation/requests/GenericRequestParam'
 import { Controller } from '../../protocols/Controller'
-import { HttpRequest, HttpResponse, HttpResponseHandler } from '../../protocols/Http'
-
-type RequestType = HttpRequest<IUpdatePermission, IPermissionParams>
+import { HttpResponse, HttpResponseHandler } from '../../protocols/Http'
 
 export class UpdatePermissionController implements Controller {
   constructor (private readonly permission: IUpdatePermissionUseCase, private readonly presenter: HttpResponseHandler<void>) {
@@ -11,7 +10,7 @@ export class UpdatePermissionController implements Controller {
     this.presenter = presenter
   }
 
-  async handle (request: RequestType): Promise<HttpResponse<void>> {
+  async handle (request: TGenericRequestParam<IUpdatePermission>): Promise<HttpResponse<void>> {
     const { id } = request.params
     const { name } = request.body
 

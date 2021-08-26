@@ -1,11 +1,15 @@
 import { HttpRequest } from '@presentation/protocols/Http'
 
-export type IGenericFilterRequest = HttpRequest<
-void,
-void,
-{
-    order?: 'DESC' | 'ASC',
-    limit?: number,
-    offset?: number
+export type TOrder = 'DESC' | 'ASC'
+
+export interface IGenericFilterRequestQuery {
+    order?: TOrder;
+    limit?: number;
+    offset?: number;
 }
+
+export type TGenericFilterRequest = HttpRequest<
+void,
+void,
+IGenericFilterRequestQuery
 >

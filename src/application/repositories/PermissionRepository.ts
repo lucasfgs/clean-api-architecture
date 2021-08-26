@@ -4,6 +4,8 @@ import { IPermissionRepository } from '@domain/repositories/IPermissionRepositor
 import { Permission } from '@infra/database/typeorm/entities/Permission'
 import { RepositoryError } from '@presentation/errors/RepositoryError'
 import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
+import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
+import { TOrder } from '@presentation/requests/GenericFilterRequest'
 
 export class PermissionRepository implements IPermissionRepository {
   private repository: Repository<Permission>
@@ -26,7 +28,7 @@ export class PermissionRepository implements IPermissionRepository {
     }
   }
 
-  async findAll (order: 'DESC' | 'ASC', limit: number, offset: number): Promise<IPermission[]> {
+  async findAll (order: TOrder, limit: number, offset: number): Promise<IPermission[]> {
     try {
       const permissions = await this.repository.find({
         order: {
@@ -65,7 +67,7 @@ export class PermissionRepository implements IPermissionRepository {
     try {
       const deletedPermission = await this.repository.delete(id)
 
-      if (deletedPermission.affected === 0) throw new RepositoryError('Permission does not exist')
+      if (deletedPermission.affected === 0) throw new DataAlreadyExistsError('Permission does not exist')
     } catch (error) {
       if (error instanceof DefaultApplicationError) throw error
 

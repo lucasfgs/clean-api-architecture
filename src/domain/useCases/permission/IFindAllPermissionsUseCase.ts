@@ -1,11 +1,5 @@
 import { IPermission } from '@domain/models/IPermission'
-
-export type IFindAllPermissionsRequestModel = {
-    order?: 'DESC' | 'ASC';
-    limit?: number;
-    offset?: number;
-}
-
+import { IGenericFilterRequestQuery } from '@presentation/requests/GenericFilterRequest'
 export interface IFindAllPermissionsUseCase {
-    findAll(requestModel?: IFindAllPermissionsRequestModel): Promise<IPermission[]>
+    findAll(requestModel?: IGenericFilterRequestQuery): Promise<IPermission[]>
 }

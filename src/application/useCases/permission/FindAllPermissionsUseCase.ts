@@ -1,27 +1,27 @@
 import { IPermission } from '@domain/models/IPermission'
 import { IPermissionRepository } from '@domain/repositories/IPermissionRepository'
-import { IFindAllPermissionsRequestModel, IFindAllPermissionsUseCase } from '@domain/useCases/permission/IFindAllPermissionsUseCase'
+import { IFindAllPermissionsUseCase } from '@domain/useCases/permission/IFindAllPermissionsUseCase'
 import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { IGenericFilterRequestQuery, TOrder } from '@presentation/requests/GenericFilterRequest'
 
 export class FindAllPermissionsUseCase implements IFindAllPermissionsUseCase {
-  constructor (private readonly permissionRepository: IPermissionRepository, private readonly validation: ValidationComposite<IFindAllPermissionsRequestModel>) {
+  constructor (private readonly permissionRepository: IPermissionRepository, private readonly validation: ValidationComposite<IGenericFilterRequestQuery>) {
     this.permissionRepository = permissionRepository
     this.validation = validation
   }
 
-  async findAll (request: IFindAllPermissionsRequestModel): Promise<IPermission[]> {
-    let order: 'DESC' | 'ASC' = 'DESC'
+  async findAll (request: IGenericFilterRequestQuery): Promise<IPermission[]> {
+    let order: TOrder = 'DESC'
     let limit = 100
     let offset = 0
     if (request) {
-      if (request.order) order = request.order
+      if (request.order) order = request.order.toUpperCase() as TOrder
       if (request.limit) limit = request.limit
       if (request.offset) offset = request.offset
     }
 
     this.validation.validate({ order, limit, offset })
 
-    const permissions = await this.permissionRepository.findAll(order, limit, offset)
-    return permissions
+    return await this.permissionRepository.findAll(order, limit, offset)
   }
 }

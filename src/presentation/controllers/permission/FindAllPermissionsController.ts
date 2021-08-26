@@ -1,19 +1,19 @@
 import { IPermission } from '@domain/models/IPermission'
 import { IFindAllPermissionsUseCase } from '@domain/useCases/permission/IFindAllPermissionsUseCase'
-import { IGenericFilterRequest } from '@presentation/requests/GenericFilterRequest'
+import { TGenericFilterRequest } from '@presentation/requests/GenericFilterRequest'
 import { Controller } from '../../protocols/Controller'
 import { HttpResponse, HttpResponseHandler } from '../../protocols/Http'
 
 export class FindAllPermissionsController implements Controller {
-  constructor (private readonly permissionUseCase: IFindAllPermissionsUseCase, private readonly presenter: HttpResponseHandler<IPermission[]>) {
-    this.permissionUseCase = permissionUseCase
+  constructor (private readonly permission: IFindAllPermissionsUseCase, private readonly presenter: HttpResponseHandler<IPermission[]>) {
+    this.permission = permission
     this.presenter = presenter
   }
 
-  async handle (request: IGenericFilterRequest): Promise<HttpResponse<IPermission[]>> {
+  async handle (request: TGenericFilterRequest): Promise<HttpResponse<IPermission[]>> {
     const { order, limit, offset } = request.query
 
-    const permission = await this.permissionUseCase.findAll({
+    const permission = await this.permission.findAll({
       order,
       limit,
       offset
