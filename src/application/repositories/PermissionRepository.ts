@@ -56,7 +56,7 @@ export class PermissionRepository implements IPermissionRepository {
 
   async update (permissionModel: IUpdatePermission): Promise<void> {
     try {
-      await this.repository.update(permissionModel.id, permissionModel)
+      await this.repository.update(permissionModel.id, { ...permissionModel, updatedAt: new Date() })
     } catch (error) {
       throw new RepositoryError('Could not update permission')
     }
