@@ -28,7 +28,7 @@ export class PermissionRepository implements IPermissionRepository {
 
   async findAll (order: 'DESC' | 'ASC', limit: number, offset: number): Promise<IPermission[]> {
     try {
-      const [list, number] = await this.repository.findAndCount({
+      const permissions = await this.repository.find({
         order: {
           name: order
         },
@@ -36,10 +36,9 @@ export class PermissionRepository implements IPermissionRepository {
         take: limit
       })
 
-      console.log(number)
-
-      return list
+      return permissions
     } catch (error) {
+      console.log(error)
       throw new RepositoryError('Could not find permission')
     }
   }
