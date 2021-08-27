@@ -1,4 +1,6 @@
+import { IPermission } from '@domain/models/IPermission'
 import { ICreatePermissionRole, IPermissionRole, IUpdatePermissionRole } from '@domain/models/IPermissionRole'
+import { IRole } from '@domain/models/IRole'
 import { IPermissionRoleRepository } from '@domain/repositories/IPermissionRoleRepository'
 import { PermissionRole } from '@infra/database/typeorm/entities/PermissionRole'
 import { RepositoryError } from '@presentation/errors/RepositoryError'
@@ -29,6 +31,19 @@ export class PermissionRoleRepository implements IPermissionRoleRepository {
       }
     }
 
+    async findByPermissionAndRole (permission: IPermission, role: IRole) {
+      try {
+        return await this.repository.findOne({
+          where: {
+            permission,
+            role
+          }
+        })
+      } catch (error) {
+        throw new RepositoryError('Could not permission role')
+      }
+    }
+
     async create (permissionRole: ICreatePermissionRole): Promise<IPermissionRole> {
       try {
         const permissionRoleCreated = await this.repository.create(permissionRole)
@@ -43,6 +58,7 @@ export class PermissionRoleRepository implements IPermissionRoleRepository {
       try {
         await this.repository.update(permissionRole.id, { ...permissionRole, updatedAt: new Date() })
       } catch (error) {
+        console.log(error)
         throw new RepositoryError('Could not update permission role')
       }
     }

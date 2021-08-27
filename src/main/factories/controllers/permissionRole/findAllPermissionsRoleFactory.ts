@@ -1,22 +1,22 @@
-import { PermissionRepository } from '@application/repositories/PermissionRepository'
-import { FindAllPermissionsUseCase } from '@application/useCases/permission/FindAllPermissionsUseCase'
+import { PermissionRoleRepository } from '@application/repositories/PermissionRoleRepository'
+import { FindAllPermissionRolesUseCase } from '@application/useCases/permissionRole/FindAllPermissionRolesUseCase'
 import { FilterValidation } from '@application/validation/common/leaf/FilterValidation'
-import { IPermission } from '@domain/models/IPermission'
-import { FindAllPermissionsController } from '@presentation/controllers/permission/FindAllPermissionsController'
+import { IPermissionRole } from '@domain/models/IPermissionRole'
+import { FindAllPermissionRolesController } from '@presentation/controllers/permissionRole/FindAlPermissionlRolesController'
 import { GenericSuccessResponse } from '@presentation/responses/GenericSuccessResponse'
 
-export const findAllPermissionsControllerFactory = () => {
-  const permissionValidation = new FilterValidation()
-  const permissionRepository = new PermissionRepository()
-  const findAllPermissionsUseCase = new FindAllPermissionsUseCase(permissionRepository, permissionValidation)
+export const findAllPermissionsRolesFactory = () => {
+  const permissionRoleValidation = new FilterValidation()
+  const permissionRoleRepository = new PermissionRoleRepository()
+  const findAllPermissionRolesUseCase = new FindAllPermissionRolesUseCase(permissionRoleRepository, permissionRoleValidation)
 
-  const findAllPermissionsPresenter = new GenericSuccessResponse<IPermission[]>()
-  const findAllPermissionsController = new FindAllPermissionsController(findAllPermissionsUseCase, findAllPermissionsPresenter)
+  const findAllPermissionRolesPresenter = new GenericSuccessResponse<IPermissionRole[]>()
+  const findAllPermissionRolesController = new FindAllPermissionRolesController(findAllPermissionRolesUseCase, findAllPermissionRolesPresenter)
 
   return {
-    permissionRepository,
-    findAllPermissionsUseCase,
-    findAllPermissionsPresenter,
-    findAllPermissionsController
+    permissionRoleRepository,
+    findAllPermissionRolesUseCase,
+    findAllPermissionRolesPresenter,
+    findAllPermissionRolesController
   }
 }

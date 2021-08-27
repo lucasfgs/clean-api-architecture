@@ -1,6 +1,7 @@
 import { IUpdatePermissionRole } from '@domain/models/IPermissionRole'
 import { IPermissionRoleRepository } from '@domain/repositories/IPermissionRoleRepository'
 import { IUpdatePermissionRoleUseCase } from '@domain/useCases/permissionRole/IUpdatePermissionRoleUseCase'
+import { RepositoryError } from '@presentation/errors/RepositoryError'
 import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
 
 export class UpdatePermissionRoleUseCase implements IUpdatePermissionRoleUseCase {
@@ -9,9 +10,17 @@ export class UpdatePermissionRoleUseCase implements IUpdatePermissionRoleUseCase
     this.validation = validation
   }
 
-  async update (permissionrole: IUpdatePermissionRole): Promise<void> {
-    await this.validation.validate(permissionrole)
+  async update (permissonRole: IUpdatePermissionRole): Promise<void> {
+    await this.validation.validate(permissonRole)
 
-    await this.repository.update(permissionrole)
+    const permissionRoleExists = await this.repository.findByPermissionAndRole(permissonRole.permission, permissonRole.role)
+
+    console.log(permissonRole)
+
+    if (!permissionRoleExists) { throw new RepositoryError('Permission role not exists') }
+
+    permissonRole.id = permissionRoleExists.id
+
+    await this.repository.update(permissonRole)
   }
 }

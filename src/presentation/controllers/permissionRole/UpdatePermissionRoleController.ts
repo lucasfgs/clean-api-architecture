@@ -1,4 +1,7 @@
+/* eslint-disable camelcase */
+import { IPermission } from '@domain/models/IPermission'
 import { IUpdatePermissionRole } from '@domain/models/IPermissionRole'
+import { IRole } from '@domain/models/IRole'
 import { IUpdatePermissionRoleUseCase } from '@domain/useCases/permissionRole/IUpdatePermissionRoleUseCase'
 import { TGenericRequestParam } from '@presentation/requests/GenericRequestParam'
 import { Controller } from '../../protocols/Controller'
@@ -10,19 +13,18 @@ export class UpdatePermissionRoleController implements Controller {
     this.presenter = presenter
   }
 
-  async handle (request: TGenericRequestParam<IUpdatePermissionRole>): Promise<HttpResponse<void>> {
-    const { id } = request.params
-    const { create, delete: destroy, read, update, permission, role } = request.body
+  async handle (request: TGenericRequestParam<IUpdatePermissionRole, {permission_id: IPermission, role_id: IRole}>): Promise<HttpResponse<void>> {
+    const { permission_id, role_id } = request.params
+    const { create, delete: destroy, read, update } = request.body
 
     const permissionRole = await this.permissionRole.update(
       {
-        id,
         create,
         delete: destroy,
         read,
         update,
-        permission,
-        role
+        permission: permission_id,
+        role: role_id
       }
     )
 

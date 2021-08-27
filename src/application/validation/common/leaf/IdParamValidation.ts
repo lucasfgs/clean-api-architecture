@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import { isAPositiveNumber } from '@application/helpers/numbers/isAPositiveNumber'
 import { RequestValidationError } from '@presentation/errors/RequestValidationError'
 import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
@@ -6,22 +7,21 @@ type ParamRequest = {
     id: number
 }
 
-export class IdParamValidation extends ValidationComposite<ParamRequest> {
-  validate (request: ParamRequest): void {
+export class IdParamValidation<T = ParamRequest> extends ValidationComposite<T> {
+  validate (request: T): void {
     if (!request) return
 
-    this.validatePositiveNumberIfExists(request.id)
+    Object.entries(request).map(value => {
+      this.validatePositiveNumberIfExists(+value[1], value[0])
+    })
   }
 
   private validatePositiveNumberIfExists (
-    value?: string | number
+    value: string | number,
+    field: string
   ): void | never {
-    if (!value) {
-      return
-    }
-
     if (!isAPositiveNumber(value)) {
-      throw new RequestValidationError('Expected a positive number')
+      throw new RequestValidationError(`Expected a positive number: ${field}`)
     }
   }
 }

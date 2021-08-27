@@ -1,21 +1,21 @@
-import { PermissionRepository } from '@application/repositories/PermissionRepository'
-import { DeletePermissionUseCase } from '@application/useCases/permission/DeletePermissionUseCase'
+import { PermissionRoleRepository } from '@application/repositories/PermissionRoleRepository'
+import { DeletePermissionRoleUseCase } from '@application/useCases/permissionRole/DeletePermissionRoleUseCase'
 import { IdParamValidation } from '@application/validation/common/leaf/IdParamValidation'
-import { DeletePermissionController } from '@presentation/controllers/permission/DeletePermissionController'
+import { DeletePermissionRoleController } from '@presentation/controllers/permissionRole/DeletePermissionRoleController'
 import { GenecricDeletedResponse } from '@presentation/responses/GenericDeletedResponse'
 
-export const deletePermissionFactory = () => {
-  const permissionValidation = new IdParamValidation()
-  const permissionRepository = new PermissionRepository()
-  const deletePermissionUseCase = new DeletePermissionUseCase(permissionRepository, permissionValidation)
+export const deletePermissionRoleFactory = () => {
+  const permissionRoleValidation = new IdParamValidation<{permissionId: number, roleId: number}>()
+  const permissionRoleRepository = new PermissionRoleRepository()
+  const deletePermissionRoleUseCase = new DeletePermissionRoleUseCase(permissionRoleRepository, permissionRoleValidation)
 
-  const deletePermissionPresenter = new GenecricDeletedResponse()
-  const deletePermissionController = new DeletePermissionController(deletePermissionUseCase, deletePermissionPresenter)
+  const deletePermissionRolePresenter = new GenecricDeletedResponse()
+  const deletePermissionRoleController = new DeletePermissionRoleController(deletePermissionRoleUseCase, deletePermissionRolePresenter)
 
   return {
-    permissionRepository,
-    deletePermissionUseCase,
-    deletePermissionPresenter,
-    deletePermissionController
+    permissionRoleRepository,
+    deletePermissionRoleUseCase,
+    deletePermissionRolePresenter,
+    deletePermissionRoleController
   }
 }

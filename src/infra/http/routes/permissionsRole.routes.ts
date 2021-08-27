@@ -1,18 +1,18 @@
 import { Router } from 'express'
-import { createPermissionControllerFactory } from '@main/factories/controllers/permission/createPermissionFactory'
-import { routeAdapter } from '../../../main/adapters/routeAdapter'
-import { findAllPermissionsControllerFactory } from '@main/factories/controllers/permission/findAllPermissionsFactory'
-import { updatePermissionFactory } from '@main/factories/controllers/permission/updatePermissionFactory'
-import { deletePermissionFactory } from '@main/factories/controllers/permission/deletePermissionFactory'
+import { routeAdapter } from '@main/adapters/routeAdapter'
+import { findAllPermissionsRolesFactory } from '@main/factories/controllers/permissionRole/findAllPermissionsRoleFactory'
+import { createPermissionRoleFactory } from '@main/factories/controllers/permissionRole/createPermissionRoleFactory'
+import { updatePermissionRoleFactory } from '@main/factories/controllers/permissionRole/updatePermissionRoleFactory'
+import { deletePermissionRoleFactory } from '@main/factories/controllers/permissionRole/deletePermissionRoleFactory'
 
 export default (router: Router): void => {
-  const { findAllPermissionsController } = findAllPermissionsControllerFactory()
-  const { createPermissionController } = createPermissionControllerFactory()
-  const { updatePermissionController } = updatePermissionFactory()
-  const { deletePermissionController } = deletePermissionFactory()
+  const { findAllPermissionRolesController } = findAllPermissionsRolesFactory()
+  const { createPermissionRoleController } = createPermissionRoleFactory()
+  const { updatePermissionRoleController } = updatePermissionRoleFactory()
+  const { deletePermissionRoleController } = deletePermissionRoleFactory()
 
-  router.get('/permissions/roles', routeAdapter(findAllPermissionsController))
-  router.post('/permissions/roles', routeAdapter(createPermissionController))
-  router.put('/permissions/:permission_id/roles/role_id', routeAdapter(updatePermissionController))
-  router.delete('/permissions/:permission_id/roles/role_id', routeAdapter(deletePermissionController))
+  router.get('/permissions/roles', routeAdapter(findAllPermissionRolesController))
+  router.post('/permissions/roles', routeAdapter(createPermissionRoleController))
+  router.put('/permissions/:permission_id/roles/:role_id', routeAdapter(updatePermissionRoleController))
+  router.delete('/permissions/:permission_id/roles/:role_id', routeAdapter(deletePermissionRoleController))
 }

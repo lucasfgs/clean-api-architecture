@@ -1,21 +1,21 @@
-import { PermissionRepository } from '@application/repositories/PermissionRepository'
-import { UpdatePermissionUseCase } from '@application/useCases/permission/UpdatePermissionUseCase'
-import { PermissionRequiredFieldsValidation } from '@application/validation/permission/leaf/PermissionRequiredFieldsValidation'
-import { UpdatePermissionController } from '@presentation/controllers/permission/UpdatePermissionController'
+import { PermissionRoleRepository } from '@application/repositories/PermissionRoleRepository'
+import { UpdatePermissionRoleUseCase } from '@application/useCases/permissionRole/UpdatePermissionRoleUseCase'
+import { UpdatePermissionRoleValidation } from '@application/validation/permissionRole/composite/UpdatePermissionRoleValidation'
+import { UpdatePermissionRoleController } from '@presentation/controllers/permissionRole/UpdatePermissionRoleController'
 import { GenericUpdatedResponse } from '@presentation/responses/GenericUpdatedResponse'
 
-export const updatePermissionFactory = () => {
-  const permissionValidation = new PermissionRequiredFieldsValidation()
-  const permissionRepository = new PermissionRepository()
-  const updatePermissionUseCase = new UpdatePermissionUseCase(permissionRepository, permissionValidation)
+export const updatePermissionRoleFactory = () => {
+  const permissionRoleValidation = new UpdatePermissionRoleValidation()
+  const permissionRoleRepository = new PermissionRoleRepository()
+  const updatePermissionRoleUseCase = new UpdatePermissionRoleUseCase(permissionRoleRepository, permissionRoleValidation)
 
-  const updatePermissionPresenter = new GenericUpdatedResponse()
-  const updatePermissionController = new UpdatePermissionController(updatePermissionUseCase, updatePermissionPresenter)
+  const updatePermissionRolePresenter = new GenericUpdatedResponse()
+  const updatePermissionRoleController = new UpdatePermissionRoleController(updatePermissionRoleUseCase, updatePermissionRolePresenter)
 
   return {
-    permissionRepository,
-    updatePermissionUseCase,
-    updatePermissionPresenter,
-    updatePermissionController
+    permissionRoleRepository,
+    updatePermissionRoleUseCase,
+    updatePermissionRolePresenter,
+    updatePermissionRoleController
   }
 }
