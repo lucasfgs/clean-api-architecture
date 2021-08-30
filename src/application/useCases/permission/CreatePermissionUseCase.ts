@@ -13,10 +13,14 @@ export class CreatePermissionUseCase implements ICreatePermissionUseCase {
   async create (requestModel?: ICreatePermission): Promise<IPermission> {
     await this.validation.validate(requestModel)
 
-    const permission = await this.permissionRepository.findByName(requestModel.name)
-
-    if (permission) { throw new DataAlreadyExistsError('Permission already exists') }
+    await this.checkPermissionExists(requestModel.name)
 
     return await this.permissionRepository.create(requestModel)
+  }
+
+  private async checkPermissionExists (name: string) {
+    const permission = await this.permissionRepository.findByName(name)
+
+    if (permission) { throw new DataAlreadyExistsError('Permission already exists') }
   }
 }

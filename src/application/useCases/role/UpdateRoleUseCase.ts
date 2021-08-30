@@ -13,10 +13,14 @@ export class UpdateRoleUseCase implements IUpdateRoleUseCase {
   async update (role: IUpdateRole): Promise<void> {
     await this.validation.validate(role)
 
-    const roleExists = await this.repository.findByName(role.name)
-
-    if (roleExists) throw new DataAlreadyExistsError('Role already exists')
+    await this.checkRoleExists(role.name)
 
     await this.repository.update(role)
+  }
+
+  private async checkRoleExists (name: string) {
+    const roleExists = await this.repository.findByName(name)
+
+    if (roleExists) throw new DataAlreadyExistsError('Role already exists')
   }
 }

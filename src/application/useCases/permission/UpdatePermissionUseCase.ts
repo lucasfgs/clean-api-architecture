@@ -13,10 +13,14 @@ export class UpdatePermissionUseCase implements IUpdatePermissionUseCase {
   async update (requestModel: IUpdatePermission): Promise<void> {
     await this.validation.validate(requestModel)
 
-    const permission = await this.permissionRepository.findByName(requestModel.name)
-
-    if (permission) { throw new DataAlreadyExistsError('Permission already exists') }
+    await this.checkPermissionExists(requestModel.name)
 
     await this.permissionRepository.update(requestModel)
+  }
+
+  private async checkPermissionExists (name: string) {
+    const permission = await this.permissionRepository.findByName(name)
+
+    if (permission) { throw new DataAlreadyExistsError('Permission already exists') }
   }
 }

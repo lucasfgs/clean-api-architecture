@@ -14,6 +14,7 @@ export class FindAllUsersUseCase implements IFindAllUsersUseCase {
     let order: TOrder = 'ASC'
     let limit = 100
     let offset = 0
+
     if (request) {
       if (request.order) order = request.order.toUpperCase() as TOrder
       if (request.limit) limit = request.limit

@@ -13,10 +13,14 @@ export class CreateRoleUseCase implements ICreateRoleUseCase {
   async create (requestModel: ICreateRole): Promise<IRole> {
     await this.validation.validate(requestModel)
 
-    const roleExists = await this.repository.findByName(requestModel.name)
-
-    if (roleExists) throw new DataAlreadyExistsError('Role already exists')
+    await this.checkRoleExists(requestModel.name)
 
     return await this.repository.create(requestModel)
+  }
+
+  private async checkRoleExists (name: string) {
+    const roleExists = await this.repository.findByName(name)
+
+    if (roleExists) throw new DataAlreadyExistsError('Role already exists')
   }
 }

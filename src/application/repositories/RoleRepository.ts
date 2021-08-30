@@ -2,6 +2,7 @@ import { ICreateRole, IRole, IUpdateRole } from '@domain/models/IRole'
 import { IRoleRepository } from '@domain/repositories/IRoleRepository'
 import { Role } from '@infra/database/typeorm/entities/Role'
 import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
+import { NotFoundError } from '@presentation/errors/NotFoundError'
 import { RepositoryError } from '@presentation/errors/RepositoryError'
 import { TOrder } from '@presentation/requests/GenericFilterRequest'
 import { getRepository, Repository } from 'typeorm'
@@ -59,7 +60,7 @@ export class RoleRepository implements IRoleRepository {
       try {
         const deteledRole = await this.repository.delete(id)
 
-        if (deteledRole.affected === 0) throw new RepositoryError('Role does not exist')
+        if (deteledRole.affected === 0) throw new NotFoundError('Role does not exist')
       } catch (error) {
         if (error instanceof DefaultApplicationError) throw error
 

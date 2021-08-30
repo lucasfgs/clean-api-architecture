@@ -2,8 +2,8 @@ import { ICreateUser, IUser } from '@domain/models/IUser'
 import { IRoleRepository } from '@domain/repositories/IRoleRepository'
 import { IUserRepository } from '@domain/repositories/IUserRepository'
 import { ICreateUserUseCase } from '@domain/useCases/user/ICreateUserUseCase'
-import { BadRequestError } from '@presentation/errors/BadRequestError'
 import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
+import { NotFoundError } from '@presentation/errors/NotFoundError'
 import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
 
 export class CreateUserUseCase implements ICreateUserUseCase {
@@ -16,14 +16,22 @@ export class CreateUserUseCase implements ICreateUserUseCase {
   async create (requestModel: ICreateUser): Promise<IUser> {
     await this.validation.validate(requestModel)
 
-    const userExists = await this.repository.findByEmail(requestModel.email)
+    await this.checkUserEmailExists(requestModel.email)
 
-    if (userExists) throw new DataAlreadyExistsError('E-mail already exists')
-
-    const role = await this.roleRepository.findById(+requestModel.role)
-
-    if (!role) throw new BadRequestError('Role not found')
+    await this.checkRoleExists(+requestModel.role)
 
     return await this.repository.create(requestModel)
+  }
+
+  private async checkUserEmailExists (email: string) {
+    const userExists = await this.repository.findByEmail(email)
+
+    if (userExists) throw new DataAlreadyExistsError('E-mail already exists')
+  }
+
+  private async checkRoleExists (roleId: number) {
+    const role = await this.roleRepository.findById(roleId)
+
+    if (!role) throw new NotFoundError('Role not found')
   }
 }
