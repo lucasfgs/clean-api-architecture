@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { routeAdapter } from '@main/adapters/routeAdapter'
+import { routeAdapter } from '@main/adapters/http/routeAdapter'
 import { findAllPermissionsRolesFactory } from '@main/factories/controllers/permissionRole/findAllPermissionsRoleFactory'
 import { createPermissionRoleFactory } from '@main/factories/controllers/permissionRole/createPermissionRoleFactory'
 import { updatePermissionRoleFactory } from '@main/factories/controllers/permissionRole/updatePermissionRoleFactory'

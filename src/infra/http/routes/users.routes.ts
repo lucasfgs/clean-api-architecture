@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { routeAdapter } from '../../../main/adapters/routeAdapter'
+import { routeAdapter } from '../../../main/adapters/http/routeAdapter'
 import { findAllUsersFactory } from '@main/factories/controllers/user/findAllUsersFactory'
 import { createUserFactory } from '@main/factories/controllers/user/createUserFactory'
 import { updateUsersFactory } from '@main/factories/controllers/user/updateUsersFactory'

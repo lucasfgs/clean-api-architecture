@@ -5,13 +5,15 @@ import { UserRequiredFieldsValidation } from '@application/validation/user/leaf/
 import { IUser } from '@domain/models/IUser'
 import { CreateUserController } from '@presentation/controllers/user/CreateUserController'
 import { GenericCreatedResponse } from '@application/protocols/responses/GenericCreatedResponse'
+import { BCryptAdapter } from '@main/adapters/security/BCryptAdapter'
 
 export const createUserFactory = () => {
   const userValidation = new UserRequiredFieldsValidation()
+  const passwordHashing = new BCryptAdapter()
 
   const userRepository = new UserRepository()
   const roleRepository = new RoleRepository()
-  const createUserUseCase = new CreateUserUseCase(userRepository, roleRepository, userValidation)
+  const createUserUseCase = new CreateUserUseCase(userRepository, roleRepository, passwordHashing, userValidation)
 
   const createUserPresenter = new GenericCreatedResponse<IUser>()
   const createUserController = new CreateUserController(createUserUseCase, createUserPresenter)

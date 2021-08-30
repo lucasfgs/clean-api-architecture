@@ -5,11 +5,17 @@ import { ICreateUserUseCase } from '@domain/useCases/user/ICreateUserUseCase'
 import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
 import { NotFoundError } from '@presentation/errors/NotFoundError'
 import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
+import { PasswordHashing } from '@application/protocols/security/PasswordHashing'
 
 export class CreateUserUseCase implements ICreateUserUseCase {
-  constructor (private readonly repository: IUserRepository, private readonly roleRepository: IRoleRepository, private readonly validation: ValidationComposite<ICreateUser>) {
+  constructor (
+    private readonly repository: IUserRepository,
+    private readonly roleRepository: IRoleRepository,
+    private readonly passwordHashing: PasswordHashing,
+     private readonly validation: ValidationComposite<ICreateUser>) {
     this.repository = repository
     this.roleRepository = roleRepository
+    this.passwordHashing = passwordHashing
     this.validation = validation
   }
 
@@ -19,6 +25,8 @@ export class CreateUserUseCase implements ICreateUserUseCase {
     await this.checkUserEmailExists(requestModel.email)
 
     await this.checkRoleExists(+requestModel.role)
+
+    requestModel.password = await this.passwordHashing.hash(requestModel.password)
 
     return await this.repository.create(requestModel)
   }

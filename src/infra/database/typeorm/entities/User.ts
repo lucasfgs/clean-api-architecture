@@ -18,7 +18,7 @@ export class User {
   @Column('character varying', { name: 'email', length: 100 })
   email: string;
 
-  @Column('character varying', { name: 'password', length: 50 })
+  @Column('character varying', { name: 'password', length: 100 })
   password: string;
 
   @Column('timestamp without time zone', {

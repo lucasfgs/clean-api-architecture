@@ -3,7 +3,7 @@ import { deleteRoleFactory } from '@main/factories/controllers/role/deleteRoleFa
 import { findAllRolesFactory } from '@main/factories/controllers/role/findAllRolesFactory'
 import { updateRolesFactory } from '@main/factories/controllers/role/updateRolesFactory'
 import { Router } from 'express'
-import { routeAdapter } from '../../../main/adapters/routeAdapter'
+import { routeAdapter } from '../../../main/adapters/http/routeAdapter'
 
 export default (router: Router): void => {
   const { createRoleController } = createRoleFactory()

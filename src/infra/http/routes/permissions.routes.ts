@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { createPermissionFactory } from '@main/factories/controllers/permission/createPermissionFactory'
-import { routeAdapter } from '@main/adapters/routeAdapter'
+import { routeAdapter } from '@main/adapters/http/routeAdapter'
 import { findAllPermissionsFactory } from '@main/factories/controllers/permission/findAllPermissionsFactory'
 import { updatePermissionFactory } from '@main/factories/controllers/permission/updatePermissionFactory'
 import { deletePermissionFactory } from '@main/factories/controllers/permission/deletePermissionFactory'
