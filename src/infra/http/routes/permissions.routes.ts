@@ -1,13 +1,13 @@
 import { Router } from 'express'
-import { createPermissionControllerFactory } from '@main/factories/controllers/permission/createPermissionFactory'
-import { routeAdapter } from '../../../main/adapters/routeAdapter'
-import { findAllPermissionsControllerFactory } from '@main/factories/controllers/permission/findAllPermissionsFactory'
+import { createPermissionFactory } from '@main/factories/controllers/permission/createPermissionFactory'
+import { routeAdapter } from '@main/adapters/routeAdapter'
+import { findAllPermissionsFactory } from '@main/factories/controllers/permission/findAllPermissionsFactory'
 import { updatePermissionFactory } from '@main/factories/controllers/permission/updatePermissionFactory'
 import { deletePermissionFactory } from '@main/factories/controllers/permission/deletePermissionFactory'
 
 export default (router: Router): void => {
-  const { findAllPermissionsController } = findAllPermissionsControllerFactory()
-  const { createPermissionController } = createPermissionControllerFactory()
+  const { findAllPermissionsController } = findAllPermissionsFactory()
+  const { createPermissionController } = createPermissionFactory()
   const { updatePermissionController } = updatePermissionFactory()
   const { deletePermissionController } = deletePermissionFactory()
 

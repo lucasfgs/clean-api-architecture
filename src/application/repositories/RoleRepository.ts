@@ -1,7 +1,6 @@
 import { ICreateRole, IRole, IUpdateRole } from '@domain/models/IRole'
 import { IRoleRepository } from '@domain/repositories/IRoleRepository'
 import { Role } from '@infra/database/typeorm/entities/Role'
-import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
 import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
 import { RepositoryError } from '@presentation/errors/RepositoryError'
 import { TOrder } from '@presentation/requests/GenericFilterRequest'
@@ -18,6 +17,10 @@ export class RoleRepository implements IRoleRepository {
       return await this.repository.findOne({ where: { name } })
     }
 
+    async findById (id: number): Promise<IRole> {
+      return await this.repository.findOne(id)
+    }
+
     async findAll (order: TOrder, limit: number, offset: number): Promise<IRole[]> {
       try {
         const roles = await this.repository.find({
@@ -30,7 +33,6 @@ export class RoleRepository implements IRoleRepository {
 
         return roles
       } catch (error) {
-        console.log(error)
         throw new RepositoryError('Could not find role')
       }
     }
@@ -57,7 +59,7 @@ export class RoleRepository implements IRoleRepository {
       try {
         const deteledRole = await this.repository.delete(id)
 
-        if (deteledRole.affected === 0) throw new DataAlreadyExistsError('Role does not exist')
+        if (deteledRole.affected === 0) throw new RepositoryError('Role does not exist')
       } catch (error) {
         if (error instanceof DefaultApplicationError) throw error
 

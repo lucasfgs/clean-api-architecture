@@ -12,8 +12,8 @@ export class DeleteRoleController implements Controller {
   async handle (request: TGenericRequestParam<any>): Promise<HttpResponse<void>> {
     const { id } = request.params
 
-    const permission = await this.role.delete(id)
+    const role = await this.role.delete(id)
 
-    return await this.presenter.response(permission)
+    return await this.presenter.response(role)
   }
 }

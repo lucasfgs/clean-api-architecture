@@ -13,8 +13,8 @@ export class FindAllRolesController implements Controller {
   async handle (request: TGenericFilterRequest): Promise<HttpResponse<IRole[]>> {
     const { order, limit, offset } = request.query
 
-    const permission = await this.role.findAll({ order, limit, offset })
+    const roles = await this.role.findAll({ order, limit, offset })
 
-    return await this.presenter.response(permission)
+    return await this.presenter.response(roles)
   }
 }

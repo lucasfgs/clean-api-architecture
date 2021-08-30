@@ -5,7 +5,7 @@ import { IPermission } from '@domain/models/IPermission'
 import { CreatePermissionController } from '@presentation/controllers/permission/CreatePermissionController'
 import { GenericCreatedResponse } from '@presentation/responses/GenericCreatedResponse'
 
-export const createPermissionControllerFactory = () => {
+export const createPermissionFactory = () => {
   const permissionValidation = new CreatePermissionValidation()
   const permissionRepository = new PermissionRepository()
   const createPermissionUseCase = new CreatePermissionUseCase(permissionRepository, permissionValidation)

@@ -5,7 +5,7 @@ import { IPermission } from '@domain/models/IPermission'
 import { FindAllPermissionsController } from '@presentation/controllers/permission/FindAllPermissionsController'
 import { GenericSuccessResponse } from '@presentation/responses/GenericSuccessResponse'
 
-export const findAllPermissionsControllerFactory = () => {
+export const findAllPermissionsFactory = () => {
   const permissionValidation = new FilterValidation()
   const permissionRepository = new PermissionRepository()
   const findAllPermissionsUseCase = new FindAllPermissionsUseCase(permissionRepository, permissionValidation)

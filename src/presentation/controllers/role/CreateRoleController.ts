@@ -12,10 +12,10 @@ export class CreateRoleController implements Controller {
   async handle (request: HttpRequest<IRole>): Promise<HttpResponse<IRole>> {
     const { name } = request.body
 
-    const permission = await this.role.create({
+    const role = await this.role.create({
       name
     })
 
-    return await this.presenter.response(permission)
+    return await this.presenter.response(role)
   }
 }
