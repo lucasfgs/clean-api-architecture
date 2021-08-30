@@ -1,8 +1,8 @@
 import { IRole } from '@domain/models/IRole'
 import { IRoleRepository } from '@domain/repositories/IRoleRepository'
 import { IFindAllRolesUseCase } from '@domain/useCases/role/IFindAllRolesUseCase'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
-import { IGenericFilterRequestQuery, TOrder } from '@presentation/requests/GenericFilterRequest'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
+import { IGenericFilterRequestQuery, TOrder } from '@application/protocols/requests/GenericFilterRequest'
 
 export class FindAllRolesUseCase implements IFindAllRolesUseCase {
   constructor (private readonly repository: IRoleRepository, private readonly validation: ValidationComposite<IGenericFilterRequestQuery>) {

@@ -1,8 +1,8 @@
 import { IPermission } from '@domain/models/IPermission'
 import { IPermissionRepository } from '@domain/repositories/IPermissionRepository'
 import { IFindAllPermissionsUseCase } from '@domain/useCases/permission/IFindAllPermissionsUseCase'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
-import { IGenericFilterRequestQuery, TOrder } from '@presentation/requests/GenericFilterRequest'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
+import { IGenericFilterRequestQuery, TOrder } from '@application/protocols/requests/GenericFilterRequest'
 
 export class FindAllPermissionsUseCase implements IFindAllPermissionsUseCase {
   constructor (private readonly permissionRepository: IPermissionRepository, private readonly validation: ValidationComposite<IGenericFilterRequestQuery>) {

@@ -3,7 +3,7 @@ import { FindAllUsersUseCase } from '@application/useCases/user/FindAllUsersUseC
 import { FilterValidation } from '@application/validation/common/leaf/FilterValidation'
 import { IUser } from '@domain/models/IUser'
 import { FindAllUsersController } from '@presentation/controllers/user/FindAllUsersController'
-import { GenericSuccessResponse } from '@presentation/responses/GenericSuccessResponse'
+import { GenericSuccessResponse } from '@application/protocols/responses/GenericSuccessResponse'
 
 export const findAllUsersFactory = () => {
   const permissionValidation = new FilterValidation()

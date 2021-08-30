@@ -5,7 +5,7 @@ import { Permission } from '@infra/database/typeorm/entities/Permission'
 import { RepositoryError } from '@presentation/errors/RepositoryError'
 import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
 import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
-import { TOrder } from '@presentation/requests/GenericFilterRequest'
+import { TOrder } from '@application/protocols/requests/GenericFilterRequest'
 
 export class PermissionRepository implements IPermissionRepository {
   private repository: Repository<Permission>

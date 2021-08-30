@@ -1,7 +1,7 @@
 import { IPermission } from '@domain/models/IPermission'
 import { ICreatePermissionRole, IPermissionRole, IUpdatePermissionRole } from '@domain/models/IPermissionRole'
 import { IRole } from '@domain/models/IRole'
-import { TOrder } from '@presentation/requests/GenericFilterRequest'
+import { TOrder } from '@application/protocols/requests/GenericFilterRequest'
 
 export interface IPermissionRoleRepository{
    findAll(order: TOrder, limit: number, offset: number): Promise<IPermissionRole[]>

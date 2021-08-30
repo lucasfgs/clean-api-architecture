@@ -2,7 +2,7 @@ import { ICreatePermission, IUpdatePermission } from '@domain/models/IPermission
 import { IPermissionRepository } from '@domain/repositories/IPermissionRepository'
 import { IUpdatePermissionUseCase } from '@domain/useCases/permission/IUpdatePermissionUseCase'
 import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class UpdatePermissionUseCase implements IUpdatePermissionUseCase {
   constructor (private readonly permissionRepository: IPermissionRepository, private readonly validation: ValidationComposite<ICreatePermission>) {

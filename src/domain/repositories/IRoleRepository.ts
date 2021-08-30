@@ -1,5 +1,5 @@
 import { ICreateRole, IRole, IUpdateRole } from '@domain/models/IRole'
-import { TOrder } from '@presentation/requests/GenericFilterRequest'
+import { TOrder } from '@application/protocols/requests/GenericFilterRequest'
 
 export interface IRoleRepository {
     create (role: ICreateRole): Promise<IRole>

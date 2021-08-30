@@ -1,5 +1,5 @@
 import { ICreateUser, IUpdateUser, IUser } from '@domain/models/IUser'
-import { TOrder } from '@presentation/requests/GenericFilterRequest'
+import { TOrder } from '@application/protocols/requests/GenericFilterRequest'
 
 export interface IUserRepository {
     create (user: ICreateUser): Promise<IUser>

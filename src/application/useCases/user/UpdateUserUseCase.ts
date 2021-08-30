@@ -4,7 +4,7 @@ import { IUserRepository } from '@domain/repositories/IUserRepository'
 import { IUpdateUserUseCase } from '@domain/useCases/user/IUpdateUserUseCase'
 import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
 import { NotFoundError } from '@presentation/errors/NotFoundError'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class UpdateUserUseCase implements IUpdateUserUseCase {
   constructor (private readonly repository: IUserRepository, private readonly roleRepository: IRoleRepository, private readonly validation: ValidationComposite<IUpdateUser>) {

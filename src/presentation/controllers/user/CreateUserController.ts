@@ -1,7 +1,7 @@
 import { IUser } from '@domain/models/IUser'
 import { ICreateUserUseCase } from '@domain/useCases/user/ICreateUserUseCase'
-import { Controller } from '../../protocols/Controller'
-import { HttpRequest, HttpResponse, HttpResponseHandler } from '../../protocols/Http'
+import { Controller } from '../../../application/protocols/controllers/Controller'
+import { HttpRequest, HttpResponse, HttpResponseHandler } from '../../../application/protocols/requests/Http'
 
 export class CreateUserController implements Controller {
   constructor (private readonly user: ICreateUserUseCase, private readonly presenter: HttpResponseHandler<IUser>) {

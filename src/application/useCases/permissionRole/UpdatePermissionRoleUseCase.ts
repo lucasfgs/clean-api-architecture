@@ -4,7 +4,7 @@ import { IRole } from '@domain/models/IRole'
 import { IPermissionRoleRepository } from '@domain/repositories/IPermissionRoleRepository'
 import { IUpdatePermissionRoleUseCase } from '@domain/useCases/permissionRole/IUpdatePermissionRoleUseCase'
 import { NotFoundError } from '@presentation/errors/NotFoundError'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class UpdatePermissionRoleUseCase implements IUpdatePermissionRoleUseCase {
   constructor (private readonly repository: IPermissionRoleRepository, private readonly validation: ValidationComposite<IUpdatePermissionRole>) {

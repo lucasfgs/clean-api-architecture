@@ -1,6 +1,6 @@
 import { IPermissionRepository } from '@domain/repositories/IPermissionRepository'
 import { IDeletePermissionUseCase } from '@domain/useCases/permission/IDeletePermissionUseCase'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class DeletePermissionUseCase implements IDeletePermissionUseCase {
   constructor (private readonly permissionRepository: IPermissionRepository, private readonly validation: ValidationComposite<{ id: number}>) {

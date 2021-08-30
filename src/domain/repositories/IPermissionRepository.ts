@@ -1,4 +1,4 @@
-import { TOrder } from '@presentation/requests/GenericFilterRequest'
+import { TOrder } from '@application/protocols/requests/GenericFilterRequest'
 import { IPermission, ICreatePermission, IUpdatePermission } from '../models/IPermission'
 
 export interface IPermissionRepository{

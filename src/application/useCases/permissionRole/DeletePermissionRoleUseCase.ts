@@ -1,6 +1,6 @@
 import { IPermissionRoleRepository } from '@domain/repositories/IPermissionRoleRepository'
 import { IDeletePermissionRoleUseCase } from '@domain/useCases/permissionRole/IDeletePermissionRoleUseCase'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class DeletePermissionRoleUseCase implements IDeletePermissionRoleUseCase {
   constructor (private readonly repository: IPermissionRoleRepository, private readonly validation: ValidationComposite<{ permissionId: number, roleId: number}>) {

@@ -1,6 +1,6 @@
 import { IUserRepository } from '@domain/repositories/IUserRepository'
 import { IDeleteUserUseCase } from '@domain/useCases/user/IDeleteUserUseCase'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class DeleteUserUseCase implements IDeleteUserUseCase {
   constructor (private readonly repository: IUserRepository, private readonly validation: ValidationComposite<{ id: number}>) {

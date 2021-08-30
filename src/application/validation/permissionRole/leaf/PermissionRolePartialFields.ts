@@ -1,7 +1,7 @@
 import { isBoolean } from '@application/helpers/boolean/isBoolean'
 import { IUpdatePermissionRole } from '@domain/models/IPermissionRole'
 import { RequestValidationError } from '@presentation/errors/RequestValidationError'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class PermissionRolePartialFields extends ValidationComposite<IUpdatePermissionRole> {
   validate (request: IUpdatePermissionRole): void {

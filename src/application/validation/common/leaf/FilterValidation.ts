@@ -1,7 +1,7 @@
 import { isAPositiveNumber } from '@application/helpers/numbers/isAPositiveNumber'
 import { RequestValidationError } from '@presentation/errors/RequestValidationError'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
-import { IGenericFilterRequestQuery } from '@presentation/requests/GenericFilterRequest'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
+import { IGenericFilterRequestQuery } from '@application/protocols/requests/GenericFilterRequest'
 
 export class FilterValidation extends ValidationComposite<IGenericFilterRequestQuery> {
   validate (request: IGenericFilterRequestQuery): void {

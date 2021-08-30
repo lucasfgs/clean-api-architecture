@@ -1,7 +1,7 @@
 import { isString } from '@application/helpers/strings/isString'
 import { ICreateRole } from '@domain/models/IRole'
 import { RequestValidationError } from '@presentation/errors/RequestValidationError'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class RoleRequiredFieldsValidation extends ValidationComposite<ICreateRole> {
   validate (request: ICreateRole): void {

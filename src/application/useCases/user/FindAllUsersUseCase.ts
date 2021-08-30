@@ -1,8 +1,8 @@
 import { IUser } from '@domain/models/IUser'
 import { IUserRepository } from '@domain/repositories/IUserRepository'
 import { IFindAllUsersUseCase } from '@domain/useCases/user/IFindAllUsersUseCase'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
-import { IGenericFilterRequestQuery, TOrder } from '@presentation/requests/GenericFilterRequest'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
+import { IGenericFilterRequestQuery, TOrder } from '@application/protocols/requests/GenericFilterRequest'
 
 export class FindAllUsersUseCase implements IFindAllUsersUseCase {
   constructor (private readonly repository: IUserRepository, private readonly validation: ValidationComposite<IGenericFilterRequestQuery>) {

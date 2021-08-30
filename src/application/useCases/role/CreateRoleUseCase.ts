@@ -2,7 +2,7 @@ import { ICreateRole, IRole } from '@domain/models/IRole'
 import { IRoleRepository } from '@domain/repositories/IRoleRepository'
 import { ICreateRoleUseCase } from '@domain/useCases/role/ICreateRoleUseCase'
 import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class CreateRoleUseCase implements ICreateRoleUseCase {
   constructor (private readonly repository: IRoleRepository, private readonly validation: ValidationComposite<ICreateRole>) {

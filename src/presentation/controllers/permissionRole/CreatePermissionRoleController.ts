@@ -1,7 +1,7 @@
 import { IPermissionRole } from '@domain/models/IPermissionRole'
 import { ICreatePermissionRoleUseCase } from '@domain/useCases/permissionRole/ICreatePermissionRoleUseCase'
-import { Controller } from '../../protocols/Controller'
-import { HttpRequest, HttpResponse, HttpResponseHandler } from '../../protocols/Http'
+import { Controller } from '../../../application/protocols/controllers/Controller'
+import { HttpRequest, HttpResponse, HttpResponseHandler } from '../../../application/protocols/requests/Http'
 
 export class CreatePermissionRoleController implements Controller {
   constructor (private readonly permissionRole: ICreatePermissionRoleUseCase, private readonly presenter: HttpResponseHandler<IPermissionRole>) {

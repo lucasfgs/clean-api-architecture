@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { IDeletePermissionRoleUseCase } from '@domain/useCases/permissionRole/IDeletePermissionRoleUseCase'
-import { Controller } from '../../protocols/Controller'
-import { HttpRequest, HttpResponse, HttpResponseHandler } from '../../protocols/Http'
+import { Controller } from '../../../application/protocols/controllers/Controller'
+import { HttpRequest, HttpResponse, HttpResponseHandler } from '../../../application/protocols/requests/Http'
 
 type RequestType = HttpRequest<any, {permission_id: number, role_id: number}>
 

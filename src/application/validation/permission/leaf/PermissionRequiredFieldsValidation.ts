@@ -1,7 +1,7 @@
 import { isString } from '@application/helpers/strings/isString'
 import { ICreatePermission } from '@domain/models/IPermission'
 import { RequestValidationError } from '@presentation/errors/RequestValidationError'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class PermissionRequiredFieldsValidation extends ValidationComposite<ICreatePermission> {
   validate (request: ICreatePermission): void {

@@ -2,7 +2,7 @@ import { isAPositiveNumber } from '@application/helpers/numbers/isAPositiveNumbe
 import { isString } from '@application/helpers/strings/isString'
 import { ICreateUser } from '@domain/models/IUser'
 import { RequestValidationError } from '@presentation/errors/RequestValidationError'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class UserRequiredFieldsValidation extends ValidationComposite<ICreateUser> {
   validate (request: ICreateUser): void {

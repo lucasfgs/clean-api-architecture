@@ -3,7 +3,7 @@ import { CreateRoleUseCase } from '@application/useCases/role/CreateRoleUseCase'
 import { RoleRequiredFieldsValidation } from '@application/validation/role/leaf/RoleRequiredFieldsValidation'
 import { IRole } from '@domain/models/IRole'
 import { CreateRoleController } from '@presentation/controllers/role/CreateRoleController'
-import { GenericCreatedResponse } from '@presentation/responses/GenericCreatedResponse'
+import { GenericCreatedResponse } from '@application/protocols/responses/GenericCreatedResponse'
 
 export const createRoleFactory = () => {
   const roleValidation = new RoleRequiredFieldsValidation()

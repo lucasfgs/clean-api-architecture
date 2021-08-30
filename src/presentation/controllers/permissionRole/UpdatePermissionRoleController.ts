@@ -3,9 +3,9 @@ import { IPermission } from '@domain/models/IPermission'
 import { IUpdatePermissionRole } from '@domain/models/IPermissionRole'
 import { IRole } from '@domain/models/IRole'
 import { IUpdatePermissionRoleUseCase } from '@domain/useCases/permissionRole/IUpdatePermissionRoleUseCase'
-import { TGenericRequestParam } from '@presentation/requests/GenericRequestParam'
-import { Controller } from '../../protocols/Controller'
-import { HttpResponse, HttpResponseHandler } from '../../protocols/Http'
+import { TGenericRequestParam } from '@application/protocols/requests/GenericRequestParam'
+import { Controller } from '../../../application/protocols/controllers/Controller'
+import { HttpResponse, HttpResponseHandler } from '../../../application/protocols/requests/Http'
 
 export class UpdatePermissionRoleController implements Controller {
   constructor (private readonly permissionRole: IUpdatePermissionRoleUseCase, private readonly presenter: HttpResponseHandler<void>) {

@@ -1,7 +1,7 @@
 import { IRole } from '@domain/models/IRole'
 import { ICreateRoleUseCase } from '@domain/useCases/role/ICreateRoleUseCase'
-import { Controller } from '../../protocols/Controller'
-import { HttpRequest, HttpResponse, HttpResponseHandler } from '../../protocols/Http'
+import { Controller } from '../../../application/protocols/controllers/Controller'
+import { HttpRequest, HttpResponse, HttpResponseHandler } from '../../../application/protocols/requests/Http'
 
 export class CreateRoleController implements Controller {
   constructor (private readonly role: ICreateRoleUseCase, private readonly presenter: HttpResponseHandler<IRole>) {

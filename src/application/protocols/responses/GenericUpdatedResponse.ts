@@ -1,4 +1,4 @@
-import { HttpResponse, HttpResponseHandler } from '@presentation/protocols/Http'
+import { HttpResponse, HttpResponseHandler } from '@application/protocols/requests/Http'
 
 export class GenericUpdatedResponse implements HttpResponseHandler<void> {
   async response (): Promise<HttpResponse<void>> {

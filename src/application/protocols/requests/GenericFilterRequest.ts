@@ -1,4 +1,4 @@
-import { HttpRequest } from '@presentation/protocols/Http'
+import { HttpRequest } from '@application/protocols/requests/Http'
 
 export type TOrder = 'DESC' | 'ASC'
 

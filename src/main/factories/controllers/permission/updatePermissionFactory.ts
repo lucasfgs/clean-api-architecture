@@ -2,7 +2,7 @@ import { PermissionRepository } from '@application/repositories/PermissionReposi
 import { UpdatePermissionUseCase } from '@application/useCases/permission/UpdatePermissionUseCase'
 import { PermissionRequiredFieldsValidation } from '@application/validation/permission/leaf/PermissionRequiredFieldsValidation'
 import { UpdatePermissionController } from '@presentation/controllers/permission/UpdatePermissionController'
-import { GenericUpdatedResponse } from '@presentation/responses/GenericUpdatedResponse'
+import { GenericUpdatedResponse } from '@application/protocols/responses/GenericUpdatedResponse'
 
 export const updatePermissionFactory = () => {
   const permissionValidation = new PermissionRequiredFieldsValidation()

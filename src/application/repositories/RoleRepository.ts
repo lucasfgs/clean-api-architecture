@@ -4,7 +4,7 @@ import { Role } from '@infra/database/typeorm/entities/Role'
 import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
 import { NotFoundError } from '@presentation/errors/NotFoundError'
 import { RepositoryError } from '@presentation/errors/RepositoryError'
-import { TOrder } from '@presentation/requests/GenericFilterRequest'
+import { TOrder } from '@application/protocols/requests/GenericFilterRequest'
 import { getRepository, Repository } from 'typeorm'
 
 export class RoleRepository implements IRoleRepository {

@@ -4,7 +4,7 @@ import { IRole } from '@domain/models/IRole'
 import { IPermissionRoleRepository } from '@domain/repositories/IPermissionRoleRepository'
 import { PermissionRole } from '@infra/database/typeorm/entities/PermissionRole'
 import { RepositoryError } from '@presentation/errors/RepositoryError'
-import { TOrder } from '@presentation/requests/GenericFilterRequest'
+import { TOrder } from '@application/protocols/requests/GenericFilterRequest'
 import { getRepository, Repository } from 'typeorm'
 
 export class PermissionRoleRepository implements IPermissionRoleRepository {

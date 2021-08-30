@@ -3,7 +3,7 @@ import { IUserRepository } from '@domain/repositories/IUserRepository'
 import { User } from '@infra/database/typeorm/entities/User'
 import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
 import { RepositoryError } from '@presentation/errors/RepositoryError'
-import { TOrder } from '@presentation/requests/GenericFilterRequest'
+import { TOrder } from '@application/protocols/requests/GenericFilterRequest'
 import { getRepository, Repository } from 'typeorm'
 
 export class UserRepository implements IUserRepository {

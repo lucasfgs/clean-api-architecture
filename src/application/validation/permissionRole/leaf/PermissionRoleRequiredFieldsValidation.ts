@@ -2,7 +2,7 @@ import { isBoolean } from '@application/helpers/boolean/isBoolean'
 import { isAPositiveNumber } from '@application/helpers/numbers/isAPositiveNumber'
 import { ICreatePermissionRole } from '@domain/models/IPermissionRole'
 import { RequestValidationError } from '@presentation/errors/RequestValidationError'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class PermissionRoleRequiredFieldsValidation extends ValidationComposite<ICreatePermissionRole> {
   validate (request: ICreatePermissionRole): void {

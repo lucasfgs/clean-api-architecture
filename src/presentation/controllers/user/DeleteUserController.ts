@@ -1,7 +1,7 @@
 import { IDeleteUserUseCase } from '@domain/useCases/user/IDeleteUserUseCase'
-import { TGenericRequestParam } from '@presentation/requests/GenericRequestParam'
-import { Controller } from '../../protocols/Controller'
-import { HttpResponse, HttpResponseHandler } from '../../protocols/Http'
+import { TGenericRequestParam } from '@application/protocols/requests/GenericRequestParam'
+import { Controller } from '../../../application/protocols/controllers/Controller'
+import { HttpResponse, HttpResponseHandler } from '../../../application/protocols/requests/Http'
 
 export class DeleteUserController implements Controller {
   constructor (private readonly user: IDeleteUserUseCase, private readonly presenter: HttpResponseHandler<void>) {

@@ -4,7 +4,7 @@ import { IUserRepository } from '@domain/repositories/IUserRepository'
 import { ICreateUserUseCase } from '@domain/useCases/user/ICreateUserUseCase'
 import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
 import { NotFoundError } from '@presentation/errors/NotFoundError'
-import { ValidationComposite } from '@presentation/protocols/ValidationComposite'
+import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class CreateUserUseCase implements ICreateUserUseCase {
   constructor (private readonly repository: IUserRepository, private readonly roleRepository: IRoleRepository, private readonly validation: ValidationComposite<ICreateUser>) {

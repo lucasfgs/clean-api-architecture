@@ -3,7 +3,7 @@ import { FindAllRolesUseCase } from '@application/useCases/role/FindAllRolesUseC
 import { FilterValidation } from '@application/validation/common/leaf/FilterValidation'
 import { IRole } from '@domain/models/IRole'
 import { FindAllRolesController } from '@presentation/controllers/role/FindAllRolesController'
-import { GenericSuccessResponse } from '@presentation/responses/GenericSuccessResponse'
+import { GenericSuccessResponse } from '@application/protocols/responses/GenericSuccessResponse'
 
 export const findAllRolesFactory = () => {
   const permissionValidation = new FilterValidation()

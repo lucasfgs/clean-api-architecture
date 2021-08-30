@@ -3,7 +3,7 @@ import { CreatePermissionRoleUseCase } from '@application/useCases/permissionRol
 import { PermissionRoleRequiredFieldsValidation } from '@application/validation/permissionRole/leaf/PermissionRoleRequiredFieldsValidation'
 import { IPermissionRole } from '@domain/models/IPermissionRole'
 import { CreatePermissionRoleController } from '@presentation/controllers/permissionRole/CreatePermissionRoleController'
-import { GenericCreatedResponse } from '@presentation/responses/GenericCreatedResponse'
+import { GenericCreatedResponse } from '@application/protocols/responses/GenericCreatedResponse'
 
 export const createPermissionRoleFactory = () => {
   const permissionRoleValidation = new PermissionRoleRequiredFieldsValidation()
