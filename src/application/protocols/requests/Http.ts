@@ -1,3 +1,5 @@
+import { SignedToken } from '@domain/models/IToken'
+
 export type HttpResponse<T> = {
     statusCode: number,
     body: T;
@@ -17,4 +19,9 @@ export interface HttpRequest<
   params?: Params;
   query?: Query;
   headers?: Headers;
+  user?: SignedToken;
+}
+
+export interface MiddlewareRequestModel extends HttpRequest {
+  method?: string
 }

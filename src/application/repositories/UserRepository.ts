@@ -37,6 +37,14 @@ export class UserRepository implements IUserRepository {
       }
     }
 
+    async findUserPermissionsById (id: number): Promise<IUser> {
+      try {
+        return await this.repository.findOne({ select: ['id', 'password'], where: { id }, relations: ['role', 'role.permissionRoles', 'role.permissionRoles.permission'] })
+      } catch (error) {
+        throw new RepositoryError('Could not find user')
+      }
+    }
+
     async create (user: ICreateUser): Promise<IUser> {
       try {
         const createdUser = await this.repository.create(user)

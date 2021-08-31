@@ -1,5 +1,5 @@
 import { LoginUseCase } from '@application/useCases/auth/LoginUseCase'
-import { JwtAdapterSingleton } from '@main/adapters/security/JwtAdapter'
+import { jwtAdapterSingleton } from '@main/adapters/security/JwtAdapter'
 import { BCryptAdapter } from '@main/adapters/security/BCryptAdapter'
 import { UserRepository } from '@application/repositories/UserRepository'
 import { LoginController } from '@presentation/controllers/auth/LoginController'
@@ -10,7 +10,7 @@ export const loginFactory = () => {
   const userRepository = new UserRepository()
 
   const passwordHashing = new BCryptAdapter()
-  const loginUseCase = new LoginUseCase(userRepository, passwordHashing, JwtAdapterSingleton)
+  const loginUseCase = new LoginUseCase(userRepository, passwordHashing, jwtAdapterSingleton)
 
   const loginPresenter = new GenericSuccessResponse<IUserLoginResponse>()
   const loginController = new LoginController(loginUseCase, loginPresenter)
