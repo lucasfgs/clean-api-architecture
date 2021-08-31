@@ -3,7 +3,7 @@ import { CreatePermissionUseCase } from '@application/useCases/permission/Create
 import { CreatePermissionValidation } from '@application/validation/permission/composite/CreatePermissionValidation'
 import { IPermission } from '@domain/models/IPermission'
 import { CreatePermissionController } from '@presentation/controllers/permission/CreatePermissionController'
-import { GenericCreatedResponse } from '@application/protocols/responses/GenericCreatedResponse'
+import { GenericCreatedResponse } from '@presentation/responses/GenericCreatedResponse'
 
 export const createPermissionFactory = () => {
   const permissionValidation = new CreatePermissionValidation()

@@ -4,7 +4,7 @@ import { CreateUserUseCase } from '@application/useCases/user/CreateUserUseCase'
 import { UserRequiredFieldsValidation } from '@application/validation/user/leaf/UserRequiredFieldsValidation'
 import { IUser } from '@domain/models/IUser'
 import { CreateUserController } from '@presentation/controllers/user/CreateUserController'
-import { GenericCreatedResponse } from '@application/protocols/responses/GenericCreatedResponse'
+import { GenericCreatedResponse } from '@presentation/responses/GenericCreatedResponse'
 import { BCryptAdapter } from '@main/adapters/security/BCryptAdapter'
 
 export const createUserFactory = () => {

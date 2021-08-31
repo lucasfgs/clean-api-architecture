@@ -1,4 +1,4 @@
-import { HttpResponse, HttpResponseHandler } from '../requests/Http'
+import { HttpResponse, HttpResponseHandler } from '../../application/protocols/requests/Http'
 
 export class GenericCreatedResponse<T> implements HttpResponseHandler<T> {
   async response (body: T): Promise<HttpResponse<T>> {

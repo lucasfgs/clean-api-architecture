@@ -3,7 +3,7 @@ import { FindAllPermissionsUseCase } from '@application/useCases/permission/Find
 import { FilterValidation } from '@application/validation/common/leaf/FilterValidation'
 import { IPermission } from '@domain/models/IPermission'
 import { FindAllPermissionsController } from '@presentation/controllers/permission/FindAllPermissionsController'
-import { GenericSuccessResponse } from '@application/protocols/responses/GenericSuccessResponse'
+import { GenericSuccessResponse } from '@presentation/responses/GenericSuccessResponse'
 
 export const findAllPermissionsFactory = () => {
   const permissionValidation = new FilterValidation()

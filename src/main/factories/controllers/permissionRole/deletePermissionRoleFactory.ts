@@ -2,7 +2,7 @@ import { PermissionRoleRepository } from '@application/repositories/PermissionRo
 import { DeletePermissionRoleUseCase } from '@application/useCases/permissionRole/DeletePermissionRoleUseCase'
 import { IdParamValidation } from '@application/validation/common/leaf/IdParamValidation'
 import { DeletePermissionRoleController } from '@presentation/controllers/permissionRole/DeletePermissionRoleController'
-import { GenecricDeletedResponse } from '@application/protocols/responses/GenericDeletedResponse'
+import { GenecricDeletedResponse } from '@presentation/responses/GenericDeletedResponse'
 
 export const deletePermissionRoleFactory = () => {
   const permissionRoleValidation = new IdParamValidation<{permissionId: number, roleId: number}>()

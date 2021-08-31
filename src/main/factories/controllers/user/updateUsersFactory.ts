@@ -3,7 +3,7 @@ import { UserRepository } from '@application/repositories/UserRepository'
 import { UpdateUserUseCase } from '@application/useCases/user/UpdateUserUseCase'
 import { UserRequiredFieldsValidation } from '@application/validation/user/leaf/UserRequiredFieldsValidation'
 import { UpdateUserController } from '@presentation/controllers/user/UpdateUserController'
-import { GenericUpdatedResponse } from '@application/protocols/responses/GenericUpdatedResponse'
+import { GenericUpdatedResponse } from '@presentation/responses/GenericUpdatedResponse'
 
 export const updateUsersFactory = () => {
   const userValidation = new UserRequiredFieldsValidation()

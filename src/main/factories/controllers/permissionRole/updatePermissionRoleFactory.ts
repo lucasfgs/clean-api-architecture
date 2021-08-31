@@ -2,7 +2,7 @@ import { PermissionRoleRepository } from '@application/repositories/PermissionRo
 import { UpdatePermissionRoleUseCase } from '@application/useCases/permissionRole/UpdatePermissionRoleUseCase'
 import { UpdatePermissionRoleValidation } from '@application/validation/permissionRole/composite/UpdatePermissionRoleValidation'
 import { UpdatePermissionRoleController } from '@presentation/controllers/permissionRole/UpdatePermissionRoleController'
-import { GenericUpdatedResponse } from '@application/protocols/responses/GenericUpdatedResponse'
+import { GenericUpdatedResponse } from '@presentation/responses/GenericUpdatedResponse'
 
 export const updatePermissionRoleFactory = () => {
   const permissionRoleValidation = new UpdatePermissionRoleValidation()
