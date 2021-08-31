@@ -31,7 +31,7 @@ export class UserRepository implements IUserRepository {
 
     async findByEmail (email: string): Promise<IUser> {
       try {
-        return await this.repository.findOne({ where: { email } })
+        return await this.repository.findOne({ select: ['id', 'password'], where: { email }, relations: ['role'] })
       } catch (error) {
         throw new RepositoryError('Could not find user')
       }

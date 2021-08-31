@@ -27,7 +27,24 @@ export class PermissionRoleRepository implements IPermissionRoleRepository {
         return permissionRoles
       } catch (error) {
         console.log(error)
-        throw new RepositoryError('Could not permission roles')
+        throw new RepositoryError('Could not find permission roles')
+      }
+    }
+
+    async findByRole (role: IRole): Promise<IPermissionRole[]> {
+      try {
+        const permissionRoles = await this.repository.find({
+          where: { role },
+          relations: [
+            'role',
+            'permission'
+          ]
+        })
+
+        return permissionRoles
+      } catch (error) {
+        console.log(error)
+        throw new RepositoryError('Could not find permission roles')
       }
     }
 
