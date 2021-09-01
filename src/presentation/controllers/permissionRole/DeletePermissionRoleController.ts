@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { objectKeyExists } from '@application/helpers/objects/objectKeyExists'
 import { IDeletePermissionRoleUseCase } from '@domain/useCases/permissionRole/IDeletePermissionRoleUseCase'
-import { RequestValidationError } from '@presentation/errors/RequestValidationError'
+import { RequestValidationError } from '@application/errors/RequestValidationError'
 import { Controller } from '@application/protocols/controllers/Controller'
 import { HttpRequest, HttpResponse, HttpResponseHandler } from '@application/protocols/requests/Http'
 

@@ -1,4 +1,4 @@
-import { HttpResponse } from '../../application/protocols/requests/Http'
+import { HttpResponse } from '../protocols/requests/Http'
 
 export type ErrorParams = {
   name?: string;

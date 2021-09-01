@@ -4,7 +4,7 @@ import { TGenericRequestParam } from '@application/protocols/requests/GenericReq
 import { Controller } from '@application/protocols/controllers/Controller'
 import { HttpResponse, HttpResponseHandler } from '@application/protocols/requests/Http'
 import { objectKeyExists } from '@application/helpers/objects/objectKeyExists'
-import { RequestValidationError } from '@presentation/errors/RequestValidationError'
+import { RequestValidationError } from '@application/errors/RequestValidationError'
 
 export class UpdateUserController implements Controller {
   constructor (private readonly user: IUpdateUserUseCase, private readonly presenter: HttpResponseHandler<void>) {

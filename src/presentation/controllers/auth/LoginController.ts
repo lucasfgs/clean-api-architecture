@@ -3,7 +3,7 @@ import { ILoginUseCase } from '@domain/useCases/auth/ILoginUseCase'
 import { Controller } from '@application/protocols/controllers/Controller'
 import { HttpRequest, HttpResponse, HttpResponseHandler } from '@application/protocols/requests/Http'
 import { objectKeyExists } from '@application/helpers/objects/objectKeyExists'
-import { RequestValidationError } from '@presentation/errors/RequestValidationError'
+import { RequestValidationError } from '@application/errors/RequestValidationError'
 
 export class LoginController implements Controller {
   constructor (private readonly auth: ILoginUseCase, private readonly presenter: HttpResponseHandler<IUserLoginResponse>) {

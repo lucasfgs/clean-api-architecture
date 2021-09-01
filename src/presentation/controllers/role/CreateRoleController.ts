@@ -1,7 +1,7 @@
 import { objectKeyExists } from '@application/helpers/objects/objectKeyExists'
 import { IRole } from '@domain/models/IRole'
 import { ICreateRoleUseCase } from '@domain/useCases/role/ICreateRoleUseCase'
-import { RequestValidationError } from '@presentation/errors/RequestValidationError'
+import { RequestValidationError } from '@application/errors/RequestValidationError'
 import { Controller } from '@application/protocols/controllers/Controller'
 import { HttpRequest, HttpResponse, HttpResponseHandler } from '@application/protocols/requests/Http'
 

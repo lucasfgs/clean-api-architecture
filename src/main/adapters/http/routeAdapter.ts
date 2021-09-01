@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
+import { DefaultApplicationError } from '@application/errors/DefaultApplicationError'
 import { Controller } from '@application/protocols/controllers/Controller'
 
 export const routeAdapter = <T>(controller: Controller<T>) => {

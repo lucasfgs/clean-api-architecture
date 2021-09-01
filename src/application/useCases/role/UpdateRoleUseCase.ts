@@ -1,7 +1,7 @@
 import { IUpdateRole } from '@domain/models/IRole'
 import { IRoleRepository } from '@domain/repositories/IRoleRepository'
 import { IUpdateRoleUseCase } from '@domain/useCases/role/IUpdateRoleUseCase'
-import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
+import { DataAlreadyExistsError } from '@application/errors/DataAlreadyExistsError'
 import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class UpdateRoleUseCase implements IUpdateRoleUseCase {

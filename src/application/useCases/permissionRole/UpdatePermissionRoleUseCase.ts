@@ -3,7 +3,7 @@ import { IUpdatePermissionRole } from '@domain/models/IPermissionRole'
 import { IRole } from '@domain/models/IRole'
 import { IPermissionRoleRepository } from '@domain/repositories/IPermissionRoleRepository'
 import { IUpdatePermissionRoleUseCase } from '@domain/useCases/permissionRole/IUpdatePermissionRoleUseCase'
-import { NotFoundError } from '@presentation/errors/NotFoundError'
+import { NotFoundError } from '@application/errors/NotFoundError'
 import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class UpdatePermissionRoleUseCase implements IUpdatePermissionRoleUseCase {

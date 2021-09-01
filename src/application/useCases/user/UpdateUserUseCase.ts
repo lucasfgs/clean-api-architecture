@@ -2,7 +2,7 @@ import { IUpdateUser } from '@domain/models/IUser'
 import { IRoleRepository } from '@domain/repositories/IRoleRepository'
 import { IUserRepository } from '@domain/repositories/IUserRepository'
 import { IUpdateUserUseCase } from '@domain/useCases/user/IUpdateUserUseCase'
-import { NotFoundError } from '@presentation/errors/NotFoundError'
+import { NotFoundError } from '@application/errors/NotFoundError'
 import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 import { PasswordHashing } from '@application/protocols/security/PasswordHashing'
 

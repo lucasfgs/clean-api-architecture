@@ -3,7 +3,7 @@ import { ICreatePermissionRole, IPermissionRole } from '@domain/models/IPermissi
 import { IRole } from '@domain/models/IRole'
 import { IPermissionRoleRepository } from '@domain/repositories/IPermissionRoleRepository'
 import { ICreatePermissionRoleUseCase } from '@domain/useCases/permissionRole/ICreatePermissionRoleUseCase'
-import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
+import { DataAlreadyExistsError } from '@application/errors/DataAlreadyExistsError'
 import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class CreatePermissionRoleUseCase implements ICreatePermissionRoleUseCase {

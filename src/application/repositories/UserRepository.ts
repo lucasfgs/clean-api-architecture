@@ -1,8 +1,8 @@
 import { ICreateUser, IUser, IUpdateUser } from '@domain/models/IUser'
 import { IUserRepository } from '@domain/repositories/IUserRepository'
 import { User } from '@infra/database/typeorm/entities/User'
-import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
-import { RepositoryError } from '@presentation/errors/RepositoryError'
+import { DefaultApplicationError } from '@application/errors/DefaultApplicationError'
+import { RepositoryError } from '@application/errors/RepositoryError'
 import { TOrder } from '@application/protocols/requests/GenericFilterRequest'
 import { getRepository, Repository } from 'typeorm'
 

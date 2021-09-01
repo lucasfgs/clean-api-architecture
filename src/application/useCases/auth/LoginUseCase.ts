@@ -4,9 +4,9 @@ import { IUser, IUserLoginRequest, IUserLoginResponse } from '@domain/models/IUs
 import { IUserRepository } from '@domain/repositories/IUserRepository'
 import { ILoginUseCase } from '@domain/useCases/auth/ILoginUseCase'
 import { JwtAdapter } from '@main/adapters/security/JwtAdapter'
-import { InternalServerError } from '@presentation/errors/InternalServerError'
-import { NotFoundError } from '@presentation/errors/NotFoundError'
-import { UnauthorizedError } from '@presentation/errors/UnauthorizedError'
+import { InternalServerError } from '@application/errors/InternalServerError'
+import { NotFoundError } from '@application/errors/NotFoundError'
+import { UnauthorizedError } from '@application/errors/UnauthorizedError'
 
 export class LoginUseCase implements ILoginUseCase {
   constructor (

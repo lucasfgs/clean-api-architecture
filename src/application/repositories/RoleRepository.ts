@@ -1,9 +1,9 @@
 import { ICreateRole, IRole, IUpdateRole } from '@domain/models/IRole'
 import { IRoleRepository } from '@domain/repositories/IRoleRepository'
 import { Role } from '@infra/database/typeorm/entities/Role'
-import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
-import { NotFoundError } from '@presentation/errors/NotFoundError'
-import { RepositoryError } from '@presentation/errors/RepositoryError'
+import { DefaultApplicationError } from '@application/errors/DefaultApplicationError'
+import { NotFoundError } from '@application/errors/NotFoundError'
+import { RepositoryError } from '@application/errors/RepositoryError'
 import { TOrder } from '@application/protocols/requests/GenericFilterRequest'
 import { getRepository, Repository } from 'typeorm'
 

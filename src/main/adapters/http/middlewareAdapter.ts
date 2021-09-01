@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import { Middleware } from '@application/protocols/middlewares/middleware'
-import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
+import { DefaultApplicationError } from '@application/errors/DefaultApplicationError'
 
 export const middlewareAdapter = (middleware: Middleware, permission?: string, role?: string[]) => {
   return async (request: Request, response: Response, next: NextFunction) => {

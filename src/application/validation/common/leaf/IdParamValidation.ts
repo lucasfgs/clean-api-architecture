@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
 import { isAPositiveNumber } from '@application/helpers/numbers/isAPositiveNumber'
-import { RequestValidationError } from '@presentation/errors/RequestValidationError'
+import { RequestValidationError } from '@application/errors/RequestValidationError'
 import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 type ParamRequest = {

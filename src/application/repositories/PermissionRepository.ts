@@ -2,9 +2,9 @@ import { getRepository, Repository } from 'typeorm'
 import { IPermission, ICreatePermission, IUpdatePermission } from '@domain/models/IPermission'
 import { IPermissionRepository } from '@domain/repositories/IPermissionRepository'
 import { Permission } from '@infra/database/typeorm/entities/Permission'
-import { RepositoryError } from '@presentation/errors/RepositoryError'
-import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
-import { DataAlreadyExistsError } from '@presentation/errors/DataAlreadyExistsError'
+import { RepositoryError } from '@application/errors/RepositoryError'
+import { DefaultApplicationError } from '@application/errors/DefaultApplicationError'
+import { DataAlreadyExistsError } from '@application/errors/DataAlreadyExistsError'
 import { TOrder } from '@application/protocols/requests/GenericFilterRequest'
 
 export class PermissionRepository implements IPermissionRepository {

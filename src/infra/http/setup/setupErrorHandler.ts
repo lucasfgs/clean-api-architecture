@@ -1,4 +1,4 @@
-import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
+import { DefaultApplicationError } from '@application/errors/DefaultApplicationError'
 import { Express, Request, Response, NextFunction } from 'express'
 
 export const setupErrorHandler = (app: Express): void => {

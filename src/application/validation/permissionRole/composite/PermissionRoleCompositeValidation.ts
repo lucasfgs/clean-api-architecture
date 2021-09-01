@@ -1,5 +1,5 @@
 import { ICreatePermissionRole } from '@domain/models/IPermissionRole'
-import { InternalServerError } from '@presentation/errors/InternalServerError'
+import { InternalServerError } from '@application/errors/InternalServerError'
 import { ValidationComposite } from '@application/protocols/validation/ValidationComposite'
 
 export class PermissionRoleCompositeValidation extends ValidationComposite<ICreatePermissionRole> {

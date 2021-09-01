@@ -5,7 +5,7 @@ import { MiddlewareRequestModel } from '@application/protocols/requests/Http'
 import { Jwt } from '@application/protocols/security/Jwt'
 import { IUser } from '@domain/models/IUser'
 import { IUserRepository } from '@domain/repositories/IUserRepository'
-import { UnauthorizedError } from '@presentation/errors/UnauthorizedError'
+import { UnauthorizedError } from '@application/errors/UnauthorizedError'
 
 export class Authenticate implements Middleware {
   constructor (
