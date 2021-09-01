@@ -1,8 +1,8 @@
 import { IPermission } from '@domain/models/IPermission'
 import { IFindAllPermissionsUseCase } from '@domain/useCases/permission/IFindAllPermissionsUseCase'
 import { TGenericFilterRequest } from '@application/protocols/requests/GenericFilterRequest'
-import { Controller } from '../../../application/protocols/controllers/Controller'
-import { HttpResponse, HttpResponseHandler } from '../../../application/protocols/requests/Http'
+import { Controller } from '@application/protocols/controllers/Controller'
+import { HttpResponse, HttpResponseHandler } from '@application/protocols/requests/Http'
 
 export class FindAllPermissionsController implements Controller {
   constructor (private readonly permission: IFindAllPermissionsUseCase, private readonly presenter: HttpResponseHandler<IPermission[]>) {

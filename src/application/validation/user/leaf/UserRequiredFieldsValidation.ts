@@ -10,13 +10,13 @@ export class UserRequiredFieldsValidation extends ValidationComposite<ICreateUse
 
     const { name, email, password, role } = request
 
-    if (!isString(name) || !name) { error.messages.push('Invalid field: name') }
+    if (!isString(name)) { error.messages.push('Invalid field: name') }
 
-    if (!isString(email) || !email) { error.messages.push('Invalid field: email') }
+    if (!isString(email)) { error.messages.push('Invalid field: email') }
 
-    if (!isString(password) || !password) { error.messages.push('Invalid field: password') }
+    if (!isString(password)) { error.messages.push('Invalid field: password') }
 
-    if (!isAPositiveNumber(+role) || !role) { error.messages.push('Invalid field: role') }
+    if (!isAPositiveNumber(+role)) { error.messages.push('Invalid field: role') }
 
     if (error.messages.length > 1) { throw error }
   }

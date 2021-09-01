@@ -1,8 +1,8 @@
 import { IUser } from '@domain/models/IUser'
 import { IFindAllUsersUseCase } from '@domain/useCases/user/IFindAllUsersUseCase'
 import { TGenericFilterRequest } from '@application/protocols/requests/GenericFilterRequest'
-import { Controller } from '../../../application/protocols/controllers/Controller'
-import { HttpResponse, HttpResponseHandler } from '../../../application/protocols/requests/Http'
+import { Controller } from '@application/protocols/controllers/Controller'
+import { HttpResponse, HttpResponseHandler } from '@application/protocols/requests/Http'
 
 export class FindAllUsersController implements Controller {
   constructor (private readonly user: IFindAllUsersUseCase, private readonly presenter: HttpResponseHandler<IUser[]>) {

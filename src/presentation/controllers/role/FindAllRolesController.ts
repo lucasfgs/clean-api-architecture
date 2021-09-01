@@ -1,8 +1,8 @@
 import { IRole } from '@domain/models/IRole'
 import { IFindAllRolesUseCase } from '@domain/useCases/role/IFindAllRolesUseCase'
 import { TGenericFilterRequest } from '@application/protocols/requests/GenericFilterRequest'
-import { Controller } from '../../../application/protocols/controllers/Controller'
-import { HttpResponse, HttpResponseHandler } from '../../../application/protocols/requests/Http'
+import { Controller } from '@application/protocols/controllers/Controller'
+import { HttpResponse, HttpResponseHandler } from '@application/protocols/requests/Http'
 
 export class FindAllRolesController implements Controller {
   constructor (private readonly role: IFindAllRolesUseCase, private readonly presenter: HttpResponseHandler<IRole[]>) {

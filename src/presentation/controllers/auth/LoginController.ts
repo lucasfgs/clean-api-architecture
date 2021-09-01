@@ -2,6 +2,8 @@ import { IUserLoginRequest, IUserLoginResponse } from '@domain/models/IUser'
 import { ILoginUseCase } from '@domain/useCases/auth/ILoginUseCase'
 import { Controller } from '@application/protocols/controllers/Controller'
 import { HttpRequest, HttpResponse, HttpResponseHandler } from '@application/protocols/requests/Http'
+import { objectKeyExists } from '@application/helpers/objects/objectKeyExists'
+import { RequestValidationError } from '@presentation/errors/RequestValidationError'
 
 export class LoginController implements Controller {
   constructor (private readonly auth: ILoginUseCase, private readonly presenter: HttpResponseHandler<IUserLoginResponse>) {
@@ -10,6 +12,8 @@ export class LoginController implements Controller {
   }
 
   async handle (request: HttpRequest<IUserLoginRequest>): Promise<HttpResponse<IUserLoginResponse>> {
+    this.validateRequest(request)
+
     const { email, password } = request.body
 
     const auth = await this.auth.login({
@@ -17,5 +21,15 @@ export class LoginController implements Controller {
     })
 
     return await this.presenter.response(auth)
+  }
+
+  private validateRequest (request:HttpRequest<IUserLoginRequest>) {
+    if (
+      !objectKeyExists(request, 'body') ||
+      !objectKeyExists(request.body, 'email') ||
+      !objectKeyExists(request.body, 'password')
+    ) {
+      throw new RequestValidationError('Invalid request')
+    }
   }
 }
