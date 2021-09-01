@@ -12,7 +12,6 @@ export const setupErrorHandler = (app: Express): void => {
     if (process.env.DEBUG === '1') {
       console.error(error)
     }
-    console.error(error)
 
     if (!(error instanceof DefaultApplicationError)) {
       return res.status(500).json({
