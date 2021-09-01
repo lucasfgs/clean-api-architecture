@@ -19,8 +19,7 @@ export class Authenticate implements Middleware {
   async handle (request: MiddlewareRequestModel, routePermission?: string, routeRoles?: string[]): Promise<void> {
     if (
       !objectKeyExists(request, 'headers') ||
-      !objectKeyExists(request.headers, 'authorization') ||
-      !routePermission
+      !objectKeyExists(request.headers, 'authorization')
     ) {
       throw new UnauthorizedError('Invalid request')
     }

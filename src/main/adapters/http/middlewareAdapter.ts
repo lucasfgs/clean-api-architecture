@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express'
 import { Middleware } from '@application/protocols/middlewares/middleware'
 import { DefaultApplicationError } from '@presentation/errors/DefaultApplicationError'
 
-export const middlewareAdapter = (middleware: Middleware, permission: string, role?: string[]) => {
+export const middlewareAdapter = (middleware: Middleware, permission?: string, role?: string[]) => {
   return async (request: Request, response: Response, next: NextFunction) => {
     return Promise.resolve(
       middleware.handle({
